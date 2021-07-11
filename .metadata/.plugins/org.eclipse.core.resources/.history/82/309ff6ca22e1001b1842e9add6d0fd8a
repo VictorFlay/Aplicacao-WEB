@@ -1,0 +1,6 @@
+<%
+		String nome = (String) session.getAttribute("nome");
+		if(nome==null){
+			response.sendRedirect("index.jsp");
+		}
+%>

@@ -1,0 +1,4 @@
+<%
+
+		out.print("seja bem vindo";
+%>

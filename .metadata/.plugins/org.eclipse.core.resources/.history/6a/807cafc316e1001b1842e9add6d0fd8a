@@ -1,0 +1,102 @@
+package controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.json.simple.JSONObject;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.mysql.cj.protocol.Resultset;
+
+import database.DBQuery;
+
+/**
+ * Servlet implementation class Auth
+ */
+@WebServlet("/Auth")
+public class Auth extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private DBQuery dbQuery = null;
+	private String mensagem;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Auth() {
+        super();
+       
+    }
+
+
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		Gson gson = new Gson();
+		JSONObject jo = new JSONObject();
+		
+		String nome = request.getParameter("nome");
+		String senha = request.getParameter("senha");
+		
+		
+		
+		this.dbQuery = new DBQuery("usuario", "idUsuario, nome, senha", "idUsuario");
+		
+
+		
+		if(nome.equals("") || senha.equals("")) {
+			jo.put("status", false);
+			jo.put("mensagem", "Please Fill Username or Password");
+			mensagem = gson.toJson(jo);
+			System.out.println(mensagem);
+		}else {
+			ResultSet rs = dbQuery.select("nome = '"+nome+"' and senha='"+senha+"'");
+			
+			try {
+				if(rs.next()) {
+					jo.put("status", true);
+					jo.put("mensagem", "Login Sucess");
+					mensagem = gson.toJson(jo);
+					System.out.println(mensagem);
+				}else {
+					jo.put("status", false);
+					jo.put("mensagem", "Checa sua conta ai brother errou feio");
+					mensagem = gson.toJson(jo);
+					System.out.println(mensagem);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	
+	public DBQuery getDbQuery() {
+		return dbQuery;
+	}
+
+	public void setDbQuery(DBQuery dbQuery) {
+		this.dbQuery = dbQuery;
+	}
+}

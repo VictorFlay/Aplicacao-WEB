@@ -1,0 +1,4 @@
+<%
+	String nome = (String) session.getAttribute("nome");
+
+%>

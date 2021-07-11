@@ -1,0 +1,13 @@
+<%@page import="model.Passagem"%>
+<%@page import="model.Aviao"%>
+<%@page import="model.Localizacao" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+	<%
+	String nome = new Localizacao().idPassagem();
+	response.getWriter().write(nome);
+%>

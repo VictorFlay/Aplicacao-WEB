@@ -1,0 +1,4 @@
+<%
+	String idpassagem = request.getParameter("idpassagem");
+	out.print("Esse é o id" + idpassagem);
+%>
