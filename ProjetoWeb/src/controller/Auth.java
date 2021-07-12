@@ -48,22 +48,21 @@ public class Auth extends HttpServlet {
 		Gson gson = new Gson();
 		JSONObject jo = new JSONObject();
 		
-		String nome = request.getParameter("nome");
+		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		
+
+		this.dbQuery = new DBQuery("usuario", "idUsuario, nome, login, senha, telefone, estado, nivelusuario", "idUsuario");
 		
 		
-		this.dbQuery = new DBQuery("usuario", "idUsuario, nome, senha", "idUsuario");
 		
-		
-		
-		if(nome.equals("") || senha.equals("")) {
+		if(login.equals("") || senha.equals("")) {
 			jo.put("status", false);
-			jo.put("mensagem", "Please Fill Username or Password");
+			jo.put("mensagem", "Please Fill Username or Password" + login);
 			mensagem = gson.toJson(jo);
 			out.print(mensagem);
 		}else {
-			ResultSet rs = dbQuery.select("nome = '"+nome+"' and senha='"+senha+"'");
+			ResultSet rs = dbQuery.select("login = '"+login+"' and senha='"+senha+"'");
 			
 			try {
 				if(rs.next()) {

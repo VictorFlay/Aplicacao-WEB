@@ -39,9 +39,143 @@
     
 
     <div class="row">
-        <div class="col-12 col-lg-3 mt-4 ml-2" id="mensagem">
+    
+    
+        <div class="col-12 col-lg-9 justify-content-between mt-4 ml-2" id="mensagem">
             "Seu primeiro destino é aqui"
         </div>
+        
+  	
+  	
+
+    <div class="col-4 col-lg-1 mt-4">
+      			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login" data-whatever="@mdo">Login</button>
+				
+				<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        <form method="POST" id="login-form">
+				          <div class="form-group">
+				            <label for="login" class="col-form-label">Login:</label>
+				            <input type="text" class="form-control" id="username" name="username">
+				          </div>
+				          
+				          <div class="form-group">
+				          
+							<label for="senha" class="col-form-label">Senha:</label>
+				            <input type="password" class="form-control" id="senha" name="senha">
+				       
+				          </div>
+				          
+				          
+				        
+				      
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <button type="submit" class="btn btn-primary">Send message</button>
+				      </div>
+				      </form>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+      
+      
+      
+    </div>
+<div class="col-4 col-lg-1 mt-4">
+      			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrar" data-whatever="@mdo">Registrar</button>
+				
+				<div class="modal fade" id="registrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">Registrar</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        <form method="POST" id="register-form">
+				        
+				          <div class="form-group">
+				            <label for="nome" class="col-form-label">Nome Completo:</label>
+				            <input type="text" class="form-control" id="nome" name="nome">
+				          </div>
+				          
+				          <div class="form-group">
+							<label for="login" class="col-form-label">Login:</label>
+				            <input type="text" class="form-control" id="cxlogin" name="cxlogin">
+				          </div>
+				          
+				          <div class="form-group">
+							<label for="senha" class="col-form-label">Senha:</label>
+				            <input type="password" class="form-control" id="cxsenha" name="cxsenha">
+				          </div>
+				         
+				         <div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="telefone" class="col-form-label">Telefone:</label>
+				            <input type="text" class="form-control" id="telefone" placeholder="Digite seu telefone..." name="telefone">
+				          </div>
+				          
+	
+						<div class="form-group col-md-3 ml-4">
+							<label for="estado" class="col-form-label">Estado</label>
+      						<select id="estado" class="form-control">
+	        					<option value="AC" selected>AC</option>
+	       						<option value="AL">AL</option>
+	       						<option value="AP">AP</option>
+	       						<option value="AM">AM</option>
+	       						<option value="BA">BA</option>
+	       						<option value="CE">CE</option>
+	       						<option value="ES">ES</option>
+	       						<option value="GO">GO</option>
+	       						<option value="MA">MA</option>
+	       						<option value="MT">MT</option>
+	       						<option value="MS">MS</option>
+	       						<option value="MG">MG</option>
+	       						<option value="PA">PA</option>
+	       						<option value="PB">PB</option>
+	       						<option value="PR">PR</option>
+	       						<option value="PE">PE</option>
+	       						<option value="PI">PI</option>
+	       						<option value="RJ">RJ</option>
+	       						<option value="RN">RN</option>
+	       						<option value="RS">RS</option>
+	       						<option value="RO">RO</option>
+	       						<option value="RR">RR</option>
+	       						<option value="SC">SC</option>
+	       						<option value="SP">SP</option>
+	       						<option value="SE">SE</option>
+	       						<option value="TO">TO</option>
+	       						<option value="DF">DF</option>
+      						</select>
+						</div>
+				      </div>
+				        
+				      
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <button type="submit" class="btn btn-primary">Send message</button>
+				      </div>
+				      </form>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+  </div>
+
+        
+        
+        
     </div>
 
     <div class="row">
@@ -93,46 +227,7 @@
             <div class="jss6">1 Passageiro</div>
         </div>
 
-		<div class="col-5 col-lg-2 mt-4 ml-4">
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
-				
-				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				          <span aria-hidden="true">&times;</span>
-				        </button>
-				      </div>
-				      <div class="modal-body">
-				        <form method="POST" id="login">
-				          <div class="form-group">
-				            <label for="nome" class="col-form-label">Nome:</label>
-				            <input type="text" class="form-control" id="nome" name="nome">
-				          </div>
-				          
-				          <div class="form-group">
-				          
-							<label for="senha" class="col-form-label">Senha:</label>
-				            <input type="password" class="form-control" id="senha" name="senha">
-				       
-				          </div>
-				          
-				          
-				        
-				      
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				        <button type="submit" class="btn btn-primary">Send message</button>
-				      </div>
-				      </form>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-
-        </div>
+		
 
        
       </div>
@@ -169,7 +264,7 @@
 		</div>
 		
 		
-      </div>
+
 
 
 
@@ -312,13 +407,15 @@
             $('.jss20').prop("readonly", true);
 
 
-			$( '#login' ).submit(function(event){
+			$( '#login-form' ).submit(function(event){
 				
 				event.preventDefault();
 				var data ={
-						nome: $('#nome').val(),
+						login: $('#username').val(),
 						senha: $('#senha').val(),
 				}
+				
+				
 				
 				$.ajax({
 					url: "${pageContext.request.contextPath}/Auth",
@@ -337,8 +434,45 @@
 				
 
 				
+				
+				
 			});
 			
+			
+			
+			$( '#register-form' ).submit(function(event){
+				
+				event.preventDefault();
+				var data ={
+						nome: $('#nome').val(),
+						login: $('#cxlogin').val(),
+						senha: $('#cxsenha').val(),
+						telefone: $('#telefone').val(),
+						estado: $('#estado').val()
+				}
+				
+				
+				$.ajax({
+					url: "${pageContext.request.contextPath}/Register",
+					type: "post",
+					dataType: "json",
+					data: data,
+					success: function(data, textStatus, jqXHR){
+						if(data.status){
+							alert(data.mensagem);
+							window.location.href = 'teste1.jsp';
+						}else{
+							alert(data.mensagem);
+						}
+					
+					}
+				})
+				
+
+				
+				
+				
+			});
 			
 			
     </script>

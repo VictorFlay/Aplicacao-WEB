@@ -1,0 +1,35 @@
+package model;
+
+import database.DBQuery;
+
+public class Usuario {
+	private int idUsuario;
+	private String nome;
+	private String login;
+	private String senha;
+	private Stringt telefone;
+	private String estado;
+	private int nivelusuario;
+	
+	private String tableName = "";
+	private String fieldsName = "";
+	private String keyField = "";
+	private String where = "";
+	private DBQuery dbQuery = null;
+	
+	
+	public Usuario() {
+		this.tableName = "usuario";
+		this.fieldsName = "idUsuario, nome, senha";
+		this.keyField = "idUsuario";
+		this.dbQuery = new DBQuery(this.tableName, this.fieldsName, this.keyField);
+		
+	
+	}
+	
+	
+	
+	
+
+	
+}
