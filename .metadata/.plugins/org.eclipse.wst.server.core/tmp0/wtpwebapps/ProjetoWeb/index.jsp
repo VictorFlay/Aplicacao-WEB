@@ -20,13 +20,13 @@
     <%
     	String carousel = new Passagem().CarouselPromocao();
     	String carouselcards = new Passagem().CarouselCards();
+    	String nome = (String) session.getAttribute("nome");
     %>
 </head>
 <body>
 
 
-	<link rel="stylesheet" type="text/css" href="css/design.css">
- 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -47,7 +47,7 @@
         
   	
   	
-
+	<% if(nome == null){ %>
     <div class="col-4 col-lg-1 mt-4">
       			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login" data-whatever="@mdo">Login</button>
 				
@@ -63,6 +63,10 @@
 				      <div class="modal-body">
 				        <form method="POST" id="login-form">
 				          <div class="form-group">
+				          	<div class="alert alert-danger center" role="alert" id="errologin">
+  								
+							</div>
+				          
 				            <label for="login" class="col-form-label">Login:</label>
 				            <input type="text" class="form-control" id="username" name="username">
 				          </div>
@@ -90,6 +94,7 @@
       
       
     </div>
+
 <div class="col-4 col-lg-1 mt-4">
       			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrar" data-whatever="@mdo">Registrar</button>
 				
@@ -104,7 +109,9 @@
 				      </div>
 				      <div class="modal-body">
 				        <form method="POST" id="register-form">
-				        
+				        	<div class="alert alert-danger center" role="alert" id="erro">
+  								Nome ou Login já cadastrado!
+							</div>
 				          <div class="form-group">
 				            <label for="nome" class="col-form-label">Nome Completo:</label>
 				            <input type="text" class="form-control" id="nome" name="nome">
@@ -171,13 +178,22 @@
 				    </div>
 				  </div>
 				</div>
-  </div>
-
-        
-        
-        
+  			</div>
+	<% }
+	
+	else{
+	%>
+	<div class="row justify-content-end">
+		<div class="col-4 col-lg-1 mt-4 ml-4">
+			<a href="deslogar.jsp?pag=1">
+			<button type="button" class="btn btn-primary">Deslogar</button>
+	        </a>
+	    </div>
     </div>
 
+	<% } %>
+
+	</div>
     <div class="row">
         <div class="col-12 col-lg-3 ml-2" id="mensagem2">
             Aqui você encontra os melhores preços para viajar
@@ -264,6 +280,7 @@
 		</div>
 		
 		
+</div>
 
 
 
@@ -271,214 +288,8 @@
 
 
 
-
-
-    <script type="text/javascript">
-    
-    
-    
-    
-    
-        $(document).ready(function(){
-            $('.primeirabarra').click(function(){
-                $('.origem').css({'visibility': 'visible'});
-            });
-
-        });
-
-        $('.quartabarra').click(function(){
-            $('.barrapassageiroescondido').css({'visibility': 'visible'});
-        });
-
-
-        
-        var countadulto = 0;
-
-        $('.jss22').click(function(){
-            if(countadulto >= 0 && countadulto < 9){
-                countadulto++;
-                $('.jss23').val(countadulto);
-                var i = countadulto;
-                if(i > 0){
-                    $('.jss153').attr("src", "img/diminuir.png");
-                }
-                if(i == 9){
-                    $('.jss154').attr("src", "img/aumentardesativado.png");
-                    $('.jss22').css({'cursor': 'default'});
-                }
-                aplicar($('.jss23').val(), $('.jss28').val());
-            }
-        });
-
-
-        $('.jss21').click(function(){
-            if(countadulto > 0 && countadulto <= 9){
-                countadulto--;
-                $('.jss23').val(countadulto);
-                $('.jss154').attr("src", "img/aumentar.png");
-                if(countadulto == 0){
-                    $('.jss153').attr("src", "img/diminuirdesativado.png");
-                }
-                aplicar($('.jss23').val(), $('.jss28').val());
-            }
-        });
-        
-
-
-
-
-        var countcrianca = 0;
-
-    $('.jss26').click(function(){
-        if(countcrianca >= 0 && countcrianca < 9){
-            countcrianca++;
-            $('.jss28').val(countcrianca);
-            var i = countcrianca;
-            if(i > 0){
-                $('.jss155').attr("src", "img/diminuir.png");
-            }
-            if(i == 9){
-                $('.jss156').attr("src", "img/aumentardesativado.png");
-                $('.jss26').css({'cursor': 'default'});
-            }
-            aplicar($('.jss23').val(), $('.jss28').val());
-        }
-    });
-
-    $('.jss25').click(function(){
-        if(countcrianca > 0 && countcrianca <= 9){
-            countcrianca--;
-            $('.jss28').val(countcrianca);
-            $('.jss156').attr("src", "img/aumentar.png");
-            if(countcrianca == 0){
-                $('.jss155').attr("src", "img/diminuirdesativado.png");
-            }
-            aplicar($('.jss23').val(), $('.jss28').val());
-        }
-    });
-
-    
-        
-    function aplicar(adulto, crianca){
-            if(adulto > 0 || crianca > 0){
-                $('.jss20').css({'color': 'black', 'cursor': 'pointer'});
-            }
-            if(adulto == 0 && crianca == 0){
-                $('.jss20').css({'color': 'grey', 'cursor': 'default'});
-            }
-
-        }
-
-        
-
-
-
-
-        $('.jss152').click(function(){
-            $('.jss16').css({'background-color': 'white'});
-            $('.jss17').css({'background-color': 'cornflowerblue'});
-            $('.jss17').prop('checked', true);
-        });
-
-        $('.jss151').click(function(){
-            $('.jss18').prop('disabled', true);
-            $('.jss16').css({'background-color': 'cornflowerblue'});
-            $('.jss17').css({'background-color': 'white'});
-            $('.jss16').prop('checked', true);
-        });
-
-        
-
-
-
-
-
-            $('#aumentar').click(function(){
-                count++;
-                $('.jss69').val(count);
-            });
-
-            $('#diminuir').click(function(){
-                count--;
-                $('#testar').text(count);
-            });
-        
-            
-            $('.jss20').prop("readonly", true);
-
-
-			$( '#login-form' ).submit(function(event){
-				
-				event.preventDefault();
-				var data ={
-						login: $('#username').val(),
-						senha: $('#senha').val(),
-				}
-				
-				
-				
-				$.ajax({
-					url: "${pageContext.request.contextPath}/Auth",
-					type: "post",
-					dataType: "json",
-					data: data,
-					success: function(data, textStatus, jqXHR){
-						if(data.status){
-							window.location.href = 'teste1.jsp';
-						}else{
-							alert(data.mensagem);
-						}
-					
-					}
-				})
-				
-
-				
-				
-				
-			});
-			
-			
-			
-			$( '#register-form' ).submit(function(event){
-				
-				event.preventDefault();
-				var data ={
-						nome: $('#nome').val(),
-						login: $('#cxlogin').val(),
-						senha: $('#cxsenha').val(),
-						telefone: $('#telefone').val(),
-						estado: $('#estado').val()
-				}
-				
-				
-				$.ajax({
-					url: "${pageContext.request.contextPath}/Register",
-					type: "post",
-					dataType: "json",
-					data: data,
-					success: function(data, textStatus, jqXHR){
-						if(data.status){
-							alert(data.mensagem);
-							window.location.href = 'teste1.jsp';
-						}else{
-							alert(data.mensagem);
-						}
-					
-					}
-				})
-				
-
-				
-				
-				
-			});
-			
-			
-    </script>
-
-
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/script.js"></script>
 
 
 

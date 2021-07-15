@@ -15,6 +15,14 @@
     top: 0px;
 }
 
+#errologin{
+	display:none;
+}
+
+
+#erro{
+	display:none;
+	}
 
 
 #origem{
@@ -560,10 +568,14 @@ hr.jss14{
 
 #aviaofundo{
 	position: absolute;
-
+	height: 350px;
+	widht: 100%;
 }
 
-
+#aviaopequeno{
+	width: 50px;
+	height: 50px;
+}
 
 .card-img-top {
     width: 100%;
@@ -577,15 +589,20 @@ hr.jss14{
 	}
 }
 
-@media only screen and (max-width: 768px) and (min-width: 540px){
+@media only screen and (max-width: 991px) and (min-width: 540px){
 	.dr{
 	left: 90px;
 	}
 	
 	#aviaofundo{
 		position: absolute;
-		height: 250px;
+		height: 350px;
+		width: 100%;
 	}
 }
 
-
+#card{
+	border-radius: 13px;
+	border-color: grey;
+	widht: 18rem;
+}

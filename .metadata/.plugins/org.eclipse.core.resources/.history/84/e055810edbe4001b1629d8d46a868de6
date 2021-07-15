@@ -1,0 +1,14 @@
+<%
+	int pag = Integer.valueOf(request.getParameter("pag"));
+	String idpassagem = request.getParameter("idpassagem");
+	session.invalidate();
+	if(pag == 2){
+		response.sendRedirect("passagens.jsp?idpassagem=" + idpassagem);
+		
+	}
+	
+	if(pag == 1){
+		
+	}
+
+%>

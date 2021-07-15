@@ -5,3 +5,6 @@
 1626022129848	Delete element
 1626051680869	Rename type 'AuthRegister'
 1626052137704	Delete element
+1626290790238	Move 'script.js' to 'WebContent'
+1626291439886	Move 'script.js' to 'js'
+1626302932948	Delete element

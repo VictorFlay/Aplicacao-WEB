@@ -1,0 +1,11 @@
+<%
+	String pag = request.getParameter("pag");
+	session.invalidate();
+	out.print(pag);
+	
+	if(pag == 2){
+		response.sendRedirect("passagens.jsp");
+	}
+	
+
+%>

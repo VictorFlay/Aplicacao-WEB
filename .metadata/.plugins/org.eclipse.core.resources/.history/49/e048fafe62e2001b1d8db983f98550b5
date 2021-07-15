@@ -1,4 +1,0 @@
-<%
-	String idpassagem = request.getParameter("idpassagem");
-
-%>

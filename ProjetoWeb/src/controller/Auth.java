@@ -51,6 +51,7 @@ public class Auth extends HttpServlet {
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		
+		
 
 		this.dbQuery = new DBQuery("usuario", "idUsuario, nome, login, senha, telefone, estado, nivelusuario", "idUsuario");
 		
@@ -58,7 +59,7 @@ public class Auth extends HttpServlet {
 		
 		if(login.equals("") || senha.equals("")) {
 			jo.put("status", false);
-			jo.put("mensagem", "Please Fill Username or Password" + login);
+			jo.put("mensagem", "Campos vázios");
 			mensagem = gson.toJson(jo);
 			out.print(mensagem);
 		}else {
@@ -66,19 +67,17 @@ public class Auth extends HttpServlet {
 			
 			try {
 				if(rs.next()) {
-					session.setAttribute("nome", rs.getString("nome"));
 					jo.put("status", true);
 					jo.put("mensagem", "Login Sucesss");
 					mensagem = gson.toJson(jo);
-					out.print(mensagem);
+					out.print(mensagem);	
 					
-					
-					
+					session.setAttribute("nivelusuario", rs.getString("nivelusuario"));
 					session.setAttribute("nome", rs.getString("nome"));
 
 				}else {
 					jo.put("status", false);
-					jo.put("mensagem", "Checa sua conta ai brother errou feio");
+					jo.put("mensagem", "Login ou senha incorretos");
 					mensagem = gson.toJson(jo);
 					out.print(mensagem);
 				}

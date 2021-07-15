@@ -57,7 +57,7 @@ public class Register extends HttpServlet {
 		
 		if(nome.equals("") || login.equals("") || senha.equals("") || telefone.equals("") || estado.equals("")) {
 			jo.put("status", false);
-			jo.put("mensagem", "Error: Valores vázios " + nome + login + senha + telefone + estado);
+			jo.put("mensagem", "Algum dos campos estão vázios");
 			mensagem = gson.toJson(jo);
 			out.print(mensagem);
 		}else {
