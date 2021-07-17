@@ -19,6 +19,21 @@
 	display:none;
 }
 
+.buscarloca{
+	position: relative;
+	widht: 100%;
+	align-items: stretch;
+    height: 200px;
+    border: 1px solid;
+    border-radius: 15px;
+    z-index: 1;
+    background-color: white;
+    font-weight: bold;
+    top: 0px;
+   	visibility: hidden;
+}
+
+
 
 #erro{
 	display:none;
@@ -38,7 +53,46 @@
     
 }
 
+.buscarlocalizacao{
+	
+	display: flex;
+    width: 300px;
+    height: 60px;
+    border: 1px solid;
+    border-radius: 15px;
+    z-index: 0;
+    background-color: white;
+    background: rgba(0, 0, 0, 0.19);
+    font-weight: bold;
+    top: 0px;
+    
+    
+}
 
+#classe{
+    width: 300px;
+    height: 60px;
+    border: 1px solid;
+    border-radius: 15px;
+    z-index: 0;
+    background-color: white;
+    background: rgba(0, 0, 0, 0.19);
+    font-weight: bold;
+    top: 0px;
+    
+}
+
+.buscarlinha{
+	width: 100px;
+    height: 60px;
+    border: 1px solid;
+    border-radius: 15px;
+    z-index: 0;
+    background-color: white;
+    background: rgba(0, 0, 0, 0.19);
+    font-weight: bold;
+    top: 0px;
+}
 
 
 #destino{
@@ -515,6 +569,51 @@ hr.jss14{
     color: white;
     font-size: 17px;
     font-weight: bold;
+    white-space: nowrap;
+}
+
+
+.jss30{
+    color: white;
+    position: absolute;
+    z-index: 3;
+    font-weight: bold;
+    font-size: 22px;
+    left: 10px;
+    top: 3px;
+    display: block;
+    opacity: 1;
+    white-space: nowrap;
+}
+
+.jss31{
+    color: white;
+    position: absolute;
+    z-index: 1000;
+    font-size: 15px;
+    left: 10px;
+    top: 30px;
+    opacity: 0.70;
+    white-space: nowrap;
+}
+
+.jss32{
+	color: black;
+    z-index: 0;
+    font-weight: bold;
+    font-size: 22px;
+    opacity: 1;
+    white-space: nowrap;
+}
+
+.jss33{
+    color: white;
+    position: absolute;
+    z-index: 1000;
+    font-size: 15px;
+    left: 10px;
+    top: 30px;
+    opacity: 0.70;
     white-space: nowrap;
 }
 

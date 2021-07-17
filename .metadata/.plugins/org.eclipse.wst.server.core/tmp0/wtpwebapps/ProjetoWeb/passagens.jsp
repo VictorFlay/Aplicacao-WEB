@@ -93,7 +93,7 @@
       
     </div>
 
-<div class="col-1 col-lg-1 mt-4">
+			<div class="col-1 col-lg-1 mt-4">
       			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrar" data-whatever="@mdo">Registrar</button>
 				
 				<div class="modal fade" id="registrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -193,36 +193,39 @@
         
         </div>
         
-     
-        		<div class="row mt-5">
-				<div class="col d-flex justify-content-center">
-					<div class="card" id="card">
-				 <div class="card-body">
-				 <div class="row">
-				 	<div class="col-4">
-				 		<h3 class="card-title">Gru Aeroporto</h3>
-				 	</div>
-				 	
-				 	<div class="col d-flex justify-content-center">
-				 		<img src="img/aviaopequeno.png" aria-hidden="true" id="aviaopequeno">
-				 	</div>
-				 	
-				 	
-				 	<div class="col-4 justify-content-end">
-				 		<h3 class="card-title">Roma</h3>
-				 	</div>
-				 </div>
+     	<form id="buscar-form">
+		<div class="form-row mt-5 ml-5">
+			
+				<div class="col-6 col-lg-3 buscarlocalizacao mt-4 ml-5">
 				
-				<p class="card-text mt-3 h5">Pesquisas de linhas aereas de onde tem como origem: GRU - Aeroporto para o destino: Roma.</p>
+			
+						<select multiple class="form-control jss32 buscarloca">
+							<option value="1" class="opcao">oi</option>
+							<option value="2" class="opcao">oi</option>
+							<option value="3" class="opcao">oi</option>
+							<option value="4" class="opcao">oi</option>
+							<option value="5" class="opcao">oi</option>
+							<option value="6" class="opcao">oi</option>
+							<option value="7" class="opcao">oi</option>
+							<option value="7" class="opcao">oi</option>
+						</select>
 				
-				<div class="col d-flex justify-content-center">
-					<p class="card-text h6 text-success bold">"Uma longa viagem começa com um único passo."</p>
+				
+				
+            		<div class="jss30"><p>Buscar Localização disponível</p></div>
+            		<div class="jss31">Qual país você deseja viajar ?</div>
+        		</div>
+				
+				<div class="col-4 col-lg-3 mt-4 ml-5" id="classe">
+            		<div class="jss30"><p>Seleciona o tipo de classe</p></div>
+            		<div class="jss33">Qual classe você deseja viajar ?</div>
+        		</div>
+			
+				<div class="col-1 col-lg-1 mt-4 ml-5">
+				<button type="button" class="btn btn-success buscarlinha">Buscar</button>
 				</div>
-				</div>
-				</div>
-	        </div>
-    	</div>
-        
+		</div>
+        </form>
       
       
         

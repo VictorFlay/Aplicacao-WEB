@@ -193,5 +193,37 @@ function aplicar(adulto, crianca){
 			})
 			
 		});
+		
+		var bol = 0;
+
+		$('.buscarlocalizacao').on('click', function(){
+			$('.buscarloca').css({'visibility': 'visible'});
+			$('.buscarlocalizacao').css({'visibility': 'hidden'});
+		});
 	
+		
+		$('.buscarloca').on('click', function(e){
+			e.stopPropagation();
+			
+			$('.buscarlocalizacao').css({'visibility': 'visible'});
+			$('.buscarloca').css({'visibility': 'hidden'});
+			$('.jss33').text($(this).val());
+			
+		});
+			
+
+		
+		
+		
+
+		/*
+		 $(document).mouseup(function(){
+	           $('#buscarlocalizacao').css({'visibility': 'visible'});
+	           $('.buscarloca').css({'visibility': 'hidden'});
+	      });
+		*/
+		
+		
+
+
 });
