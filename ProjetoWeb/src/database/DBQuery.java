@@ -86,6 +86,26 @@ public class DBQuery {
 		return this.query(sql);
 	} 
 	
+	public ResultSet selectLocalizacao(String where) {
+		String sql = "select li.idPassagem, pa.idPassagem as id, lo.nome as nome from linha_aerea li ";
+		sql += "inner join passagem pa on li.idPassagem = pa.idPassagem ";
+		sql += "inner join localizacao lo on lo.idLocalizacao = pa.idLocalizacao group by lo.nome";
+		sql += (( where!="") ? " WHERE "+ where : "" );
+		System.out.print(sql);
+		return this.query(sql);
+	}
+	
+	public ResultSet linhasDisponivel(String where) {
+		String sql = "select p.idPassagem, lo.nome, li.nomeEmpresa, li.classe as classe from passagem p  ";
+		sql += "inner join localizacao lo on p.idLocalizacao = lo.idLocalizacao ";
+		sql += "inner join linha_aerea li on p.idPassagem = li.idPassagem ";
+		sql += (( where!="") ? " WHERE "+ where : "" );
+		System.out.print(sql);
+		return this.query(sql);
+	}
+	
+	
+	
 	public ResultSet selectID(String where) {
 		String sql = "SELECT "+  this.joinElements(this.fieldsName, ", ") + " FROM " + this.tableName;
 		sql += (( where!="") ? " WHERE "+ where : "" );

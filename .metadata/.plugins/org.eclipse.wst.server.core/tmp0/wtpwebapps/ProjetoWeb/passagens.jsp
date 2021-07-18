@@ -1,11 +1,17 @@
 <%@page import="model.Passagem" %>
+<%@page import="model.LinhaAerea" %>
 <html lang="pt">
 <head>
 
 	<%
+		
 		String idpassagem = request.getParameter("idpassagem");
+		String id = request.getParameter("id");
+		String classe = request.getParameter("classe");
 		String nome = (String) session.getAttribute("nome");
 		String nivelusuario = (String) session.getAttribute("nivelusuario");
+		String localizacao = new LinhaAerea().localizacao();
+		String classes = new LinhaAerea().classes();
 		
 	%>
 	
@@ -177,6 +183,7 @@
 				  </div>
 				</div>
   			</div>
+  			
 	<% }
 	
 	else{
@@ -193,22 +200,12 @@
         
         </div>
         
-     	<form id="buscar-form">
+     	<form id="buscar-form" method="POST">
 		<div class="form-row mt-5 ml-5">
 			
 				<div class="col-6 col-lg-3 buscarlocalizacao mt-4 ml-5">
 				
-			
-						<select multiple class="form-control jss32 buscarloca">
-							<option value="1" class="opcao">oi</option>
-							<option value="2" class="opcao">oi</option>
-							<option value="3" class="opcao">oi</option>
-							<option value="4" class="opcao">oi</option>
-							<option value="5" class="opcao">oi</option>
-							<option value="6" class="opcao">oi</option>
-							<option value="7" class="opcao">oi</option>
-							<option value="7" class="opcao">oi</option>
-						</select>
+					<% out.print(localizacao); %>
 				
 				
 				
@@ -216,19 +213,34 @@
             		<div class="jss31">Qual país você deseja viajar ?</div>
         		</div>
 				
-				<div class="col-4 col-lg-3 mt-4 ml-5" id="classe">
+				<div class="col-4 col-lg-3 classe mt-4 ml-5">
+					<select multiple class="form-control jss32 buscarclasse"">
+						<option value="1" >Classe Econômica</option>
+						<option value="2"  >Classe Executiva</option>
+					</select>
+					
+				
             		<div class="jss30"><p>Seleciona o tipo de classe</p></div>
             		<div class="jss33">Qual classe você deseja viajar ?</div>
         		</div>
 			
 				<div class="col-1 col-lg-1 mt-4 ml-5">
-				<button type="button" class="btn btn-success buscarlinha">Buscar</button>
+				<button type="submit" class="btn btn-success buscarlinha">Buscar</button>
 				</div>
 		</div>
         </form>
       
       
+        <div class="row">
+        	<div class="col-lg-2">
+        		
+        		<% String buscarlocalizacao = new Passagem().BuscarLocalizacao(id, classe);
+        			out.print(buscarlocalizacao);
+        		%>
+        		
+        	</div>
         
+        </div>
         
         
         

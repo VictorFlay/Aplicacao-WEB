@@ -6,8 +6,12 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="opacity"/>
+		<item key="selection" value="classe"/>
 		<list key="findhistory">
+			<item value="classe"/>
+			<item value="getI"/>
+			<item value="getF"/>
+			<item value="getS"/>
 			<item value="opacity"/>
 			<item value="aviaofundo"/>
 			<item value="idaviao"/>

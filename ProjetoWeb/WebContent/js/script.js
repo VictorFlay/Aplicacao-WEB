@@ -194,9 +194,8 @@ function aplicar(adulto, crianca){
 			
 		});
 		
-		var bol = 0;
-
 		$('.buscarlocalizacao').on('click', function(){
+
 			$('.buscarloca').css({'visibility': 'visible'});
 			$('.buscarlocalizacao').css({'visibility': 'hidden'});
 		});
@@ -204,26 +203,58 @@ function aplicar(adulto, crianca){
 		
 		$('.buscarloca').on('click', function(e){
 			e.stopPropagation();
-			
 			$('.buscarlocalizacao').css({'visibility': 'visible'});
 			$('.buscarloca').css({'visibility': 'hidden'});
-			$('.jss33').text($(this).val());
-			
+			$('.jss31').text($( ".buscarloca option:selected" ).text());
 		});
 			
+		
+		$('.classe').on('click', function(){
+			$('.buscarclasse').css({'visibility': 'visible'});
+			$('.classe').css({'visibility': 'hidden'});
+		});
+	
+		$('.buscarclasse').on('click', function(e){
+			e.stopPropagation();
+			$('.classe').css({'visibility': 'visible'});
+			$('.buscarclasse').css({'visibility': 'hidden'});
+			$('.jss33').text($( ".buscarclasse option:selected" ).text());
+		});
+		
+		
+		
+		 $(document).mouseup(function(e){
+			$('.buscarloca').css({'visibility': 'hidden'});
+			$('.buscarlocalizacao').css({'visibility': 'visible'});
 
-		
-		
-		
-
-		/*
-		 $(document).mouseup(function(){
-	           $('#buscarlocalizacao').css({'visibility': 'visible'});
-	           $('.buscarloca').css({'visibility': 'hidden'});
 	      });
-		*/
-		
-		
+	
 
+		 $( '#buscar-form' ).submit(function(event){
+			 	
+				 
+				var data ={
+						idlocalizacao: $('select.buscarloca').children("option:selected").val(),
+						classe: $("select.buscarclasse").children("option:selected").val(),
+				}	
+				
+				$.ajax({
+					url: "/ProjetoWeb/Search",
+					type: "post",
+					dataType: "json",
+					data: data,
+					success: function(data, textStatus, jqXHR){
+						if(data.status){
+							
+							window.location.href = "passagens.jsp?id="+data.id+"&classe="+data.classe;
+						}else{
+							alert(data.mensagem);
+						}
+					
+					}
+				})
+				
+			});
+		 
 
 });

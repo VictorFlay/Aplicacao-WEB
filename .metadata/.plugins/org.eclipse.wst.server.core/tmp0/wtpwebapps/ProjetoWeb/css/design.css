@@ -33,7 +33,31 @@
    	visibility: hidden;
 }
 
+.buscarclasse{
+	position: relative;
+	widht: 100%;
+	align-items: stretch;
+    height: 70px;
+    border: 1px solid;
+    border-radius: 15px;
+    z-index: 1;
+    background-color: white;
+    font-weight: bold;
+    top: 0px;
+   	visibility: hidden;
+}
 
+.classe{
+    width: 300px;
+    height: 60px;
+    border: 1px solid;
+    border-radius: 15px;
+    z-index: 0;
+    background-color: white;
+    background: rgba(0, 0, 0, 0.19);
+    font-weight: bold;
+    top: 0px;
+}
 
 #erro{
 	display:none;
@@ -69,18 +93,6 @@
     
 }
 
-#classe{
-    width: 300px;
-    height: 60px;
-    border: 1px solid;
-    border-radius: 15px;
-    z-index: 0;
-    background-color: white;
-    background: rgba(0, 0, 0, 0.19);
-    font-weight: bold;
-    top: 0px;
-    
-}
 
 .buscarlinha{
 	width: 100px;

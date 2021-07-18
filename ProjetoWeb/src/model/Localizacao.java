@@ -7,8 +7,19 @@ import database.DBQuery;
 
 public class Localizacao {
 	private String nome;
+	private int promocao;
 	
 	
+	
+	
+	public int getPromocao() {
+		return promocao;
+	}
+
+	public void setPromocao(int promocao) {
+		this.promocao = promocao;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -33,13 +44,14 @@ public class Localizacao {
 		this.dbQuery = new DBQuery(this.tableName, this.fieldsName, this.keyField);
 	}
 	
-	public Localizacao(String nome) {
+	public Localizacao(String nome, int promocao) {
 		this.tableName = "passagens";
 		this.fieldsName = "localizacao, preco, promocao";
 		this.keyField = "idPassagem";
 		this.dbQuery = new DBQuery(this.tableName, this.fieldsName, this.keyField);
 
 		this.setNome(nome);
+		this.setPromocao(promocao);
 	}
 	
 
