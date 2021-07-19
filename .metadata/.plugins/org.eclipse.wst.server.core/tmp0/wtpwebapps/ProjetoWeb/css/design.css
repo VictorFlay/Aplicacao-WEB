@@ -2,6 +2,16 @@
     margin-right: -10px;
 }
 
+#errobusca{
+	display: none;
+	color: white;
+    z-index: 1;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+
 #barra{
     width: 200px;
     height: 50px;

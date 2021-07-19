@@ -209,7 +209,8 @@ function aplicar(adulto, crianca){
 		});
 			
 		
-		$('.classe').on('click', function(){
+		$('.classe').on('click', function(e){
+			e.stopPropagation();
 			$('.buscarclasse').css({'visibility': 'visible'});
 			$('.classe').css({'visibility': 'hidden'});
 		});
@@ -226,12 +227,14 @@ function aplicar(adulto, crianca){
 		 $(document).mouseup(function(e){
 			$('.buscarloca').css({'visibility': 'hidden'});
 			$('.buscarlocalizacao').css({'visibility': 'visible'});
-
+			
+			$('.buscarclasse').css({'visibility': 'hidden'});
+			$('.classe').css({'visibility': 'visible'});
 	      });
 	
 
 		 $( '#buscar-form' ).submit(function(event){
-			 	
+			 	event.preventDefault();
 				 
 				var data ={
 						idlocalizacao: $('select.buscarloca').children("option:selected").val(),
@@ -245,10 +248,10 @@ function aplicar(adulto, crianca){
 					data: data,
 					success: function(data, textStatus, jqXHR){
 						if(data.status){
-							
 							window.location.href = "passagens.jsp?id="+data.id+"&classe="+data.classe;
 						}else{
-							alert(data.mensagem);
+							$( '#errobusca' ).text( data.mensagem );
+							$( '#errobusca' ).css({'display': 'block'});
 						}
 					
 					}

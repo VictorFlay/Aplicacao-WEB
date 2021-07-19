@@ -104,7 +104,33 @@ public class DBQuery {
 		return this.query(sql);
 	}
 	
+	public ResultSet dadosLinha(String where) {
+		String sql = "select lo.nome as nome, li.nomeEmpresa as empresa, li.preco as preco, li.classe as classe from passagem p  ";
+		sql += "inner join localizacao lo on p.idLocalizacao = lo.idLocalizacao ";
+		sql += "inner join linha_aerea li on p.idPassagem = li.idPassagem ";
+		sql += (( where!="") ? " WHERE "+ where : "" );
+		System.out.print(sql);
+		return this.query(sql);
+	}
 	
+	
+	public ResultSet linhasQuantidade(String where) {
+		String sql = "select count(*) as quantidade from passagem p  ";
+		sql += "inner join localizacao lo on p.idLocalizacao = lo.idLocalizacao ";
+		sql += "inner join linha_aerea li on p.idPassagem = li.idPassagem ";
+		sql += (( where!="") ? " WHERE "+ where : "" );
+		System.out.print(sql);
+		return this.query(sql);
+	}
+	
+	public ResultSet linhasQuantidadeIdClasse(String where) {
+		String sql = "select count(*) as quantidade from passagem p  ";
+		sql += "inner join localizacao lo on p.idLocalizacao = lo.idLocalizacao ";
+		sql += "inner join linha_aerea li on p.idPassagem = li.idPassagem ";
+		sql += (( where!="") ? " WHERE "+ where : "" );
+		System.out.print(sql);
+		return this.query(sql);
+	}
 	
 	public ResultSet selectID(String where) {
 		String sql = "SELECT "+  this.joinElements(this.fieldsName, ", ") + " FROM " + this.tableName;

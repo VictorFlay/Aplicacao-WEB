@@ -200,7 +200,7 @@
         
         </div>
         
-     	<form id="buscar-form" method="POST">
+     	<form method="POST" id="buscar-form" >
 		<div class="form-row mt-5 ml-5">
 			
 				<div class="col-6 col-lg-3 buscarlocalizacao mt-4 ml-5">
@@ -229,22 +229,43 @@
 				</div>
 		</div>
         </form>
+      	<div class="row justify-content-center mt-5" id="errobuscalinha">
+        	<div class="col-3 text-center" id="errobusca"></div>
+    	</div>
       
-      
-        <div class="row">
-        	<div class="col-lg-2">
-        		
-        		<% String buscarlocalizacao = new Passagem().BuscarLocalizacao(id, classe);
-        			out.print(buscarlocalizacao);
-        		%>
-        		
-        	</div>
+		<div class="row">
+			  <div class="col-lg-6 mt-2 invisible">
+			  	Créditos: Kaique
+			  </div>
+		</div>
         
-        </div>
+        <div class="row mt-5">
+			  <div class="col-lg-6 mt-5 ml-4 h6">
+			  	<%
+			  		if(idpassagem != null || idpassagem != ""){
+			  			String quantidade = new LinhaAerea().quantidadeocaLinhaAerea(idpassagem, id, classe);
+			  			out.print(quantidade);
+			  		}
+			  	
+			  	
+			  	%>
+			  </div>
+		</div>
         
+        <%
+        	if(idpassagem != null){
+        		String dadospassagem = new LinhaAerea().dadosLinha(idpassagem);
+        		out.print(dadospassagem);
+        	}else if(id != null && classe != null){
+        		String dadospassagem = new LinhaAerea().dadosLinhabusca(id, classe, nivelusuario);
+        		out.print(dadospassagem);
+        	}
+        %>
         
-        
-        
+ 
+        <%
+        	out.print(nivelusuario + "aqui");
+        %>
         
         
         

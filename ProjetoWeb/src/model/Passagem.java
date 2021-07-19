@@ -203,7 +203,6 @@ public class Passagem {
 	}
 	
 	
-	
 	public String idPassagem() {
 		ResultSet rs = this.dbQuery.selectID("idPassagem=(select max(idPassagem) from passagens)");
 		String id = "";
@@ -216,6 +215,8 @@ public class Passagem {
 		}
 		return (id);
 	}
+	
+	
 
 	public int getIdPassagem() {
 		return idPassagem;
