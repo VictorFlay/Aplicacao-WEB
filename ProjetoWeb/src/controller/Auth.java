@@ -74,6 +74,7 @@ public class Auth extends HttpServlet {
 					
 					session.setAttribute("nivelusuario", rs.getString("nivelusuario"));
 					session.setAttribute("nome", rs.getString("nome"));
+					session.setAttribute("idusuario", rs.getString("idUsuario"));
 
 				}else {
 					jo.put("status", false);

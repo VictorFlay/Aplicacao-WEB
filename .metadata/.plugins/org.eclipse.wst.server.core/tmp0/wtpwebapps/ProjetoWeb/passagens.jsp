@@ -9,6 +9,7 @@
 		String id = request.getParameter("id");
 		String classe = request.getParameter("classe");
 		String nome = (String) session.getAttribute("nome");
+		String idusuario = (String) session.getAttribute("idusuario");
 		String nivelusuario = (String) session.getAttribute("nivelusuario");
 		String localizacao = new LinhaAerea().localizacao();
 		String classes = new LinhaAerea().classes();
@@ -204,11 +205,8 @@
 		<div class="form-row mt-5 ml-5">
 			
 				<div class="col-6 col-lg-3 buscarlocalizacao mt-4 ml-5">
-				
+
 					<% out.print(localizacao); %>
-				
-				
-				
             		<div class="jss30"><p>Buscar Localização disponível</p></div>
             		<div class="jss31">Qual país você deseja viajar ?</div>
         		</div>
@@ -254,20 +252,20 @@
         
         <%
         	if(idpassagem != null){
-        		String dadospassagem = new LinhaAerea().dadosLinha(idpassagem);
+        		String dadospassagem = new LinhaAerea().dadosLinha(idpassagem, nivelusuario, idusuario);
         		out.print(dadospassagem);
         	}else if(id != null && classe != null){
-        		String dadospassagem = new LinhaAerea().dadosLinhabusca(id, classe, nivelusuario);
+        		String dadospassagem = new LinhaAerea().dadosLinhabusca(id, classe, nivelusuario, idusuario);
         		out.print(dadospassagem);
         	}
         %>
         
  
         <%
-        	out.print(nivelusuario + "aqui");
+        	out.print(nivelusuario + "aqui" +"ID USUARIO: " + idusuario);
         %>
         
-        
+
         
         
 	</div>

@@ -1,0 +1,8 @@
+<%@page import="model.Compra"%>
+<%
+	String idusuario = request.getParameter("idusuario");
+	String idpassagem = request.getParameter("idpassagem");
+	String idlinha = request.getParameter("idlinha");
+	
+
+%>

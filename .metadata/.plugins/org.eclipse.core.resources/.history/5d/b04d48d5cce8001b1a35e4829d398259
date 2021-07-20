@@ -1,0 +1,11 @@
+<%@page import="model.Compra"%>
+<%
+	String nivelusuario = (String) session.getAttribute("nivelusuario");
+	String idusuario = request.getParameter("idusuario");
+	
+	if(idusuario == null){
+		response.sendRedirect("index.jsp");
+	}
+	
+		
+%>

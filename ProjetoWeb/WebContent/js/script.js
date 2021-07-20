@@ -235,11 +235,12 @@ function aplicar(adulto, crianca){
 
 		 $( '#buscar-form' ).submit(function(event){
 			 	event.preventDefault();
-				 
 				var data ={
 						idlocalizacao: $('select.buscarloca').children("option:selected").val(),
 						classe: $("select.buscarclasse").children("option:selected").val(),
 				}	
+				
+				alert($('select.buscarloca').children("option:selected").val() + $("select.buscarclasse").children("option:selected").val());
 				
 				$.ajax({
 					url: "/ProjetoWeb/Search",
@@ -259,5 +260,12 @@ function aplicar(adulto, crianca){
 				
 			});
 		 
+		 $('button[id^="comprarsucess"]').click(function () {
+			 alert("Passagem comprada com sucesso!");
+			 
+		 });
+		 
+		 
+	
 
 });

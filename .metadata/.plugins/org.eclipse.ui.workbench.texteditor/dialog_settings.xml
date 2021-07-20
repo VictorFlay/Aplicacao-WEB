@@ -6,19 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="classe"/>
+		<item key="selection" value="buscarlocalizacao"/>
 		<list key="findhistory">
+			<item value="buscarlocalizacao"/>
+			<item value="jss37"/>
+			<item value="jss32"/>
+			<item value="buscarloca"/>
+			<item value="jss36"/>
+			<item value="32"/>
+			<item value="jss33"/>
+			<item value="&#x09;display: flex;"/>
+			<item value="origem"/>
 			<item value="classe"/>
 			<item value="getI"/>
 			<item value="getF"/>
 			<item value="getS"/>
 			<item value="opacity"/>
 			<item value="aviaofundo"/>
-			<item value="idaviao"/>
-			<item value="center"/>
-			<item value="auto"/>
-			<item value="jss2"/>
-			<item value="mensagem"/>
 		</list>
 		<list key="replacehistory">
 		</list>

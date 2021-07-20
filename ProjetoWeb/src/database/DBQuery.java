@@ -105,7 +105,7 @@ public class DBQuery {
 	}
 	
 	public ResultSet dadosLinha(String where) {
-		String sql = "select lo.nome as nome, li.nomeEmpresa as empresa, li.preco as preco, li.classe as classe from passagem p  ";
+		String sql = "select lo.nome as nome, li.nomeEmpresa as empresa, li.preco as preco, li.classe as classe, p.idpassagem as id, li.idLinhaAerea from passagem p  ";
 		sql += "inner join localizacao lo on p.idLocalizacao = lo.idLocalizacao ";
 		sql += "inner join linha_aerea li on p.idPassagem = li.idPassagem ";
 		sql += (( where!="") ? " WHERE "+ where : "" );

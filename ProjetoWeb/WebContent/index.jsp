@@ -1,4 +1,6 @@
 <%@page import="model.Passagem" %>
+<%@page import="model.LinhaAerea" %>
+
 <html lang="pt">
 <head>
 	<%@ page contentType="text/html; charset=UTF-8" %>
@@ -21,6 +23,7 @@
     	String carousel = new Passagem().CarouselPromocao();
     	String carouselcards = new Passagem().CarouselCards();
     	String nome = (String) session.getAttribute("nome");
+    	String localizacao = new LinhaAerea().localizacao();
     %>
 </head>
 <body>
@@ -34,21 +37,27 @@
 
     <div class="container-fluid px-0">
      
+     <div class="row">
+			<div class="col-12 col-lg-12 center">
+				<img src="img/menu.jpg" class="img-responsive" alt="Responsive image" id="imagem">
+			</div>
+		</div>
      
-        <img src="img/menu.jpg" class="img-responsive" alt="Responsive image" id="imagem">
+     
+        
     
 
     <div class="row">
     
     
-        <div class="col-12 col-lg-9 justify-content-between mt-4 ml-2" id="mensagem">
+        <div class="col-9 col-lg-9 justify-content-between mt-4 ml-2" id="mensagem">
             "Seu primeiro destino é aqui"
         </div>
         
   	
   	
 	<% if(nome == null){ %>
-    <div class="col-4 col-lg-1 mt-4">
+    <div class="col-1 col-lg-1 mt-4">
       			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login" data-whatever="@mdo">Login</button>
 				
 				<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -95,7 +104,7 @@
       
     </div>
 
-<div class="col-4 col-lg-1 mt-4">
+<div class="col-1 col-lg-1 mt-4">
       			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrar" data-whatever="@mdo">Registrar</button>
 				
 				<div class="modal fade" id="registrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -184,7 +193,7 @@
 	else{
 	%>
 	<div class="row justify-content-end">
-		<div class="col-4 col-lg-1 mt-4 ml-4">
+		<div class="col-1 col-lg-1 mt-4 ml-4">
 			<a href="deslogar.jsp?pag=1">
 			<button type="button" class="btn btn-primary">Deslogar</button>
 	        </a>
@@ -200,75 +209,71 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-2 col-lg-1 mt-4 ml-2">
-            <div class="form-check" >
-                <input class="form-check-input" type="radio" name="exampleRadios" id="radio1" value="option1" checked>
-                <label class="form-check-label jss29 ml-2 mt-1" for="exampleRadios1">
-                    Ida e volta
-                </label>
-            </div>
+	<form method="POST" id="buscar-form" >
+    <div class="row mt-4">
+        <div class="col-2 col-lg-2 aeroporto mt-4 ml-4">
+            <div class="jss30"><p>Origem</p></div>
+            <div class="jss35">GRU - Aeroporto</div>
         </div>
 
-        <div class="col-2 col-lg-1 mt-4 ml-2">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="radio1" value="option1">
-                <label class="form-check-label jss29 ml-2 mt-1" for="exampleRadios1">
-                    Somente ida
-                </label>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-5 col-lg-2 mt-4 ml-4" id="origem">
-            <div class="jss1"><p>Origem</p></div>
-            <div class="jss2">De onde você vai sair ?</div>
+	
+		<div class="col-3 col-lg-3 buscarlocalizacao mt-4 ml-5">
+				
+				<% out.print(localizacao); %>
+            	<div class="jss30"><p>Buscar Localização</p></div>
+            	<div class="jss31">Qual país você deseja viajar ?</div>
         </div>
 
-        <div class="col-5 col-lg-2 mt-4 ml-4" id="destino">
-            <div class="jss3">Destino</div>
-            <div class="jss4">Para onde vai?</div>
-        </div>
-
-        <div class="col-5 col-lg-2 mt-4 ml-4" id="calendario">
-            <img src="img/calendario.jpg" width="25px" height="25px" id="iconecalendario">
-            <div class="jss5">Escolha as datas</div>
-        </div>
-
-        <div class="col-5 col-lg-2 mt-4 ml-4" id="passageiro">
-            <div id="perfil">
-                <img src="img/perfil.png" width="40px" height="40px" >
-            </div>
-            <div class="jss6">1 Passageiro</div>
-        </div>
-
+				<div class="col-3 col-lg-3 classe mt-4 ml-5">
+					<select multiple class="form-control buscarclasse">
+						<option value="1" class="jss32">Classe Econômica</option>
+						<option value="2"  class="jss32">Classe Executiva</option>
+					</select>
+					
+				
+            		<div class="jss30"><p>Seleciona a classe</p></div>
+            		<div class="jss33">Qual classe você deseja viajar ?</div>
+        		</div>
 		
-
+		<div class="col-1 col-lg-1 mt-4 ml-5">
+			<button type="submit" class="btn btn-success buscarlinha">Buscar</button>
+			
+		</div>
        
       </div>
+      </form>
+      
+      <div class="row justify-content-center mt-5" id="errobuscalinha">
+        	<div class="col-3 text-center" id="errobusca"></div>
+    	</div>
 
-	<div class="row mt-5">
-		 <div class="col-sm-6 col-lg-2">
-		.
-        </div>
-	</div>
 	
 
       <div class="row mt-5">
-        <div class="col-6 col-lg-6 ">
-            Um dia você aprende que as verdadeiras amizades continuam a crescer, mesmo a longas distâncias. E o que importa não é o que você tem na vida, mas quem tem na vida. Aprende que não temos que mudar de amigos, se compreendermos que os amigos mudam.
+        <div class="col-6 col-lg-6 jss37 mt-5" id="titulo">
+           <div class="row justify-content-center mt-5" id="mensagem"">
+          		Passagens na promoção
+           </div>
+           
+			<div class="row justify-content-center" id="mensagem"">
+          		Basta clicar na imagem ao lado
+          		</div>
+
+
          </div>
-         <div class="col-6 col-lg-5">
+         <div class="col-6 col-lg-5 mt-5">
 			<% out.print(carousel); %>
          </div>
-        <div class="col-12 col-lg-12 ">
+
+		</div>
+		
+		<div class="row">
+			        <div class="col-12 col-lg-12 ">
             <div class="mx-auto msg mt-4" style="width: 500px;">
   				Passagens com preços imbatíveis
 			</div>
          </div>
 		</div>
-		
 		
 		
 		<div class="row mt-4">

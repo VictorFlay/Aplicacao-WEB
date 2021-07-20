@@ -1,0 +1,12 @@
+<%@page import="model.Compra"%>
+<%
+	String nivelusuario = (String) session.getAttribute("nivelusuario");
+	if(Integer.valueOf(nivelusuario) == 1){
+		String idusuario = request.getParameter("idusuario");
+		String idpassagem = request.getParameter("idpassagem");
+		String idlinha = request.getParameter("idlinha");
+		Compra compra = new Compra(idusuario, idpassagem, idlinha);
+	}
+
+	
+%>
