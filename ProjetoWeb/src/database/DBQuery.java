@@ -148,7 +148,27 @@ public class DBQuery {
 		return this.query(sql);
 	}
 	
-
+	public int deleteLinha(String where) {
+		String sql = "DELETE FROM linha_aerea ";
+		sql += (( where!="") ? " WHERE "+ where : "" );
+		System.out.print(sql);
+		return( this.execute(sql) );
+	}
+	
+	
+	public int deletePassagem(String where) {
+		String sql = "DELETE FROM passagem ";
+		sql += (( where!="") ? " WHERE "+ where : "" );
+		System.out.print(sql);
+		return( this.execute(sql) );
+	}
+	
+	public int deleteCompra(String where) {
+		String sql = "DELETE FROM compra ";
+		sql += (( where!="") ? " WHERE "+ where : "" );
+		System.out.print(sql);
+		return( this.execute(sql) );
+	}
 	
 	
 	public int insert(String[] values) {
@@ -181,25 +201,13 @@ public class DBQuery {
 		return ( this.execute(sql) );
 	}
 	
-	public int update(String[] values) {
-		
-		if (values.length != this.fieldsName.length){
-			System.out.println("\n A quantidade de campos � diferente da quantidade de valores!");
-			return ( 0 );
-		}
-		
+	public int update(String nomeEmpresa, String preco, String classe, String id) {
 		String sql = "\nUPDATE "+this.tableName+" SET ";
-		for( int i=0; i <  values.length; i++){
-			sql += "\n\t "+
-				this.fieldsName[i] + " = '"+values[i].trim()+"'" 
-				+  ((i == values.length-1) ? "" : ", ");
-		}
-		if ( this.keyFieldIndex < 0 ){
-			return(0);
-		}
-		sql += "\n WHERE "+ this.fieldKey +" = '"+ values[this.keyFieldIndex] +"'";
+		sql += "nomeEmpresa='"+nomeEmpresa+"', preco='"+ preco+"',classe='"+classe+"' ";
+		sql += "WHERE idLinhaAerea ='"+id+"'";
 		System.out.print( sql );
 		return ( this.execute(sql) );
+		
 	}
 
 	public String getTableName() {

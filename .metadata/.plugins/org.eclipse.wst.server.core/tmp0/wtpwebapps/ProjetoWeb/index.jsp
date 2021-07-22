@@ -18,7 +18,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
-    <title>Document</title>
+    <title>Agência</title>
     <%
     	String carousel = new Passagem().CarouselPromocao();
     	String carouselcards = new Passagem().CarouselCards();
@@ -91,8 +91,8 @@
 				        
 				      
 				      <div class="modal-footer">
-				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				        <button type="submit" class="btn btn-primary">Send message</button>
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+				        <button type="submit" class="btn btn-primary">Entrar</button>
 				      </div>
 				      </form>
 				      </div>
@@ -179,8 +179,8 @@
 				        
 				      
 				      <div class="modal-footer">
-				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				        <button type="submit" class="btn btn-primary">Send message</button>
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+				        <button type="submit" class="btn btn-primary">Entrar</button>
 				      </div>
 				      </form>
 				      </div>

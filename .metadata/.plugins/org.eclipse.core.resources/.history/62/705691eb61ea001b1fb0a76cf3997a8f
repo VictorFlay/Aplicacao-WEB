@@ -1,0 +1,12 @@
+<%
+	String nome = request.getParameter("cxnome");
+	String classe = request.getParameter("cxclasse");
+	String preco = request.getParameter("cxpreco");
+	String nivelusuario = (String) session.getAttribute("nivelusuario");
+	int converte = new Usuario().convert(nivelusuario);
+	
+	if(nome != null && classe != null & preco != null && )
+	
+
+	out.print("nome: " + nome + "classe: " + classe + "preco: " + preco);
+%>

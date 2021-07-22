@@ -100,16 +100,18 @@ public class Passagem {
 			while(rs.next()) {
 				if(i == 0) {
 				saida += "<div class=\"carousel-item active\">\r\n" + 
+						"<a href=passagens.jsp?idpassagem=" + rs.getString("passagem") + ">" +
 						"  <img class=\"d-block w-100\" src=" + rs.getString("URL") + " style=\"height:380px; width:350px;\">\r\n" + 
-						" <div class=\"carousel-caption d-none d-md-block\">" +
+						"</a><div class=\"carousel-caption d-none d-md-block\">" +
 						"<h4>" + rs.getString("nome") + "</h4>" +
 						"<p>" + "preço a partir de: " + NumberFormat.getCurrencyInstance(ptBr).format(rs.getFloat("preco")) + "<p>" +
 						" </div> </div>";
 				}
 				else {
 					saida += "<div class=\"carousel-item\">\r\n" + 
+							"<a href=passagens.jsp?idpassagem=" + rs.getString("passagem") + ">" +
 							"  <img class=\"d-block w-100\" src=" + rs.getString("URL") + " style=\"height:380px; width:350px;\">\r\n" + 
-							" <div class=\"carousel-caption d-none d-md-block\">" +
+							"</a><div class=\"carousel-caption d-none d-md-block\">" +
 							"<h4>" + rs.getString("nome") + "</h4>" +
 							"<p>" + "preço a partir de: " + NumberFormat.getCurrencyInstance(ptBr).format(rs.getFloat("preco")) + "<p>" +
 							" </div> </div>";

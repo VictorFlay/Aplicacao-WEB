@@ -1,0 +1,8 @@
+<%
+	String nome = request.getParameter("cxnome");
+	String classe = request.getParameter("cxclasse");
+
+	
+
+	out.print("nome: " + nome + "classe: " + classe + "preco: " + preco);
+%>

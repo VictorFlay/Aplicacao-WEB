@@ -1,0 +1,12 @@
+<%@page import="model.Usuario"%>
+<%@page import="model.Compra"%>
+<%
+	String nivelusuario = (String) session.getAttribute("nivelusuario");
+	String idusuario = request.getParameter("idusuario");
+	String idpassagem = request.getParameter("idpassagem");
+	String idlinha = request.getParameter("idlinha");
+	
+	new Usuario().excluir(idpassagem, idlinha);
+	
+	
+%>

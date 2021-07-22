@@ -753,3 +753,14 @@ hr.jss14{
 #titulo{
 	top: 100px;	
 }
+
+
+#menuadm{
+	position: absolute;
+	width: 1366px;
+	height: 225px;
+	image-rendering: auto;
+  	image-rendering: crisp-edges;
+  	image-rendering: pixelated;
+  	opacity: 0.6;
+}

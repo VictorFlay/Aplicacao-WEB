@@ -1,3 +1,4 @@
+<%@page import="model.Usuario"%>
 <%@page import="model.Passagem" %>
 <%@page import="model.LinhaAerea" %>
 <html lang="pt">
@@ -11,6 +12,7 @@
 		String nome = (String) session.getAttribute("nome");
 		String idusuario = (String) session.getAttribute("idusuario");
 		String nivelusuario = (String) session.getAttribute("nivelusuario");
+		int converte = new Usuario().convert(nivelusuario);
 		String localizacao = new LinhaAerea().localizacao();
 		String classes = new LinhaAerea().classes();
 		
@@ -32,7 +34,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
-    <title>Document</title>
+    <title>Passagem</title>
 
 </head>
 <body>
@@ -87,8 +89,8 @@
 				        
 				      
 				      <div class="modal-footer">
-				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				        <button type="submit" class="btn btn-primary">Send message</button>
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+				        <button type="submit" class="btn btn-primary">Entrar</button>
 				      </div>
 				      </form>
 				      </div>
@@ -175,8 +177,8 @@
 				        
 				      
 				      <div class="modal-footer">
-				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				        <button type="submit" class="btn btn-primary">Send message</button>
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+				        <button type="submit" class="btn btn-primary">Entrar</button>
 				      </div>
 				      </form>
 				      </div>
@@ -204,7 +206,7 @@
      	<form method="POST" id="buscar-form" >
 		<div class="form-row mt-5 ml-5">
 			
-				<div class="col-6 col-lg-3 buscarlocalizacao mt-4 ml-5">
+				<div class="col-5 col-lg-3 buscarlocalizacao mt-4 ml-5">
 
 					<% out.print(localizacao); %>
             		<div class="jss30"><p>Buscar Localização disponível</p></div>
@@ -251,19 +253,26 @@
 		</div>
         
         <%
+  
+
+
+        	
         	if(idpassagem != null){
-        		String dadospassagem = new LinhaAerea().dadosLinha(idpassagem, nivelusuario, idusuario);
+        		String dadospassagem = new LinhaAerea().dadosLinha(idpassagem, converte, idusuario);
         		out.print(dadospassagem);
         	}else if(id != null && classe != null){
-        		String dadospassagem = new LinhaAerea().dadosLinhabusca(id, classe, nivelusuario, idusuario);
+        		String dadospassagem = new LinhaAerea().dadosLinhabusca(id, classe, converte, idusuario);
         		out.print(dadospassagem);
         	}
+        	
+        	
+    
+        
+        
+        
         %>
         
  
-        <%
-        	out.print(nivelusuario + "aqui" +"ID USUARIO: " + idusuario);
-        %>
         
 
         

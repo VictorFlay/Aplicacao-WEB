@@ -1,7 +1,0 @@
-<%
-	String idusuario = request.getParameter("idusuario");
-	String idpassagem = request.getParameter("idpassagem");
-	String idlinha = request.getParameter("idlinha");
-	
-	out.print("ID USUARIO: "+ idusuario + "ID Passagem: " + idpassagem + "ID linha: " + idlinha);
-%>

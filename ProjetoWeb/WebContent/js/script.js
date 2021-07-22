@@ -240,7 +240,6 @@ function aplicar(adulto, crianca){
 						classe: $("select.buscarclasse").children("option:selected").val(),
 				}	
 				
-				alert($('select.buscarloca').children("option:selected").val() + $("select.buscarclasse").children("option:selected").val());
 				
 				$.ajax({
 					url: "/ProjetoWeb/Search",
@@ -262,8 +261,43 @@ function aplicar(adulto, crianca){
 		 
 		 $('button[id^="comprarsucess"]').click(function () {
 			 alert("Passagem comprada com sucesso!");
-			 
 		 });
+		 
+		 $('button[id^="excluirsucess"]').click(function () {
+			 alert("Linha aérea excluida com sucesso!");
+		 });
+
+		 
+		 $( '#alterar-form' ).submit(function(event){
+			 	event.preventDefault();
+				var data ={
+						nome: $('#cxnome').val(),
+						classe: $('#cxclasse').val(),
+						preco: $('#cxpreco').val(),
+						id: $('#id').val()
+				}	
+				
+				
+				
+				
+				$.ajax({
+					url: "/ProjetoWeb/Alter",
+					type: "post",
+					dataType: "json",
+					data: data,
+					success: function(data, textStatus, jqXHR){
+						if(data.status){
+							alert(data.mensagem);
+							window.location.href = window.location.href;
+							
+						}else{
+							alert(data.mensagem)
+						}
+					
+					}
+				})
+				
+			});
 		 
 		 
 	

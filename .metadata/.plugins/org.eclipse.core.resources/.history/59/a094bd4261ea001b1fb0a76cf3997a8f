@@ -1,0 +1,10 @@
+<%
+	String nome = request.getParameter("cxnome");
+
+	Float preco = Float.valueOf(request.getParameter("cxpreco"));
+	
+	if(preco == null){
+		out.print("valeu");
+	}
+	
+%>

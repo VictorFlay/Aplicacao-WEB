@@ -1,0 +1,8 @@
+<%
+	String nome = request.getParameter("cxnome");
+	String classe = request.getParameter("cxclasse") != null ? Integer.parseInt((request.getParameter("cxclasse") : "nulo";
+	Strin preco = Float.valueOf(request.getParameter("cxpreco"));
+	
+
+	out.print("nome: " + nome + "classe: " + classe + "preco: " + preco);
+%>
