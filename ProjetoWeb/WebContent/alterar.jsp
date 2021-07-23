@@ -1,3 +1,4 @@
+<%@page import="model.Localizacao"%>
 <%@page import="model.Usuario"%>
 <%@page import="model.Passagem" %>
 <%@page import="model.LinhaAerea" %>
@@ -13,7 +14,7 @@
 		String idusuario = (String) session.getAttribute("idusuario");
 		String nivelusuario = (String) session.getAttribute("nivelusuario");
 		int converte = new Usuario().convert(nivelusuario);
-		String localizacao = new LinhaAerea().localizacao();
+		String localizacao = new Localizacao().localizacoes();
 		String classes = new LinhaAerea().classes();
 		String linhaaerea = new LinhaAerea().linhaAereaEspecifica(idpassagem, id);
 		String alterarlinha = new LinhaAerea().alterarLinha(idpassagem, id);

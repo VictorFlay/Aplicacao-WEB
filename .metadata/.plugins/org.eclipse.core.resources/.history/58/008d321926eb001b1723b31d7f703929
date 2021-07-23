@@ -1,0 +1,143 @@
+<%@page import="model.Usuario"%>
+<%@page import="model.Passagem" %>
+<%@page import="model.LinhaAerea" %>
+	<%
+		String nivelusuario = (String) session.getAttribute("nivelusuario");
+		int converte = new Usuario().convert(nivelusuario);
+		if(converte == 2){
+	%>
+<html lang="pt">
+<head>
+
+
+	
+	<%@ page contentType="text/html; charset=UTF-8" %>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/design.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/design.css">
+ 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <title>Adicionar localizacao</title>
+
+</head>
+<body>
+
+	<div class="container-fluid px-0">
+		<div class="row">
+			<div class="col-12 col-lg-12 center">
+				<img src="img/menuadm.jpg" class="img-fluid" id="menuadm">
+			</div>
+		</div>
+        
+        <div class="row mt-2 ml-2">
+			<div class="col-8 col-lg-9 justify-content-between ">
+				<!-- Não esquece de voltar com o id -->
+	             <a href="passagens.jsp">
+			    	<button type="button" class="btn btn-primary">Voltar</button>
+			    </a>
+			 </div>  
+		</div>
+		
+		
+		<div class="row justify-content-center mt-2">
+			<div class="col-3 col-lg-3 text-center h2">
+				Menu Administrador
+			</div>
+		</div>
+	
+	
+		<div class="row justify-content-center mt-5">
+			<div class="col-3 col-lg-3 text-center h2">
+				Adicionar Localização
+			</div>
+		</div>
+	
+		<div class="row justify-content-center mt-5">
+			<div class="col-6 col-lg-5 text-center h3">
+				Formulário para adicionar o país
+			</div>
+		</div>
+	
+	
+"       <div class="row justify-content-center mt-2\">\r\n" + 
+						"        	<div class=\"col-lg-8 mt-1\">\r\n" + 
+						"            <div class=\"card\">\r\n" + 
+						"			  <div class=\"card-body\">\r\n" + 
+						"			    <h5 class=\"card-title\">\r\n" + 
+						"					  <div class=\"row justify-content-between\">\r\n" + 
+						"						<div class=\"col-4\">\r\n" + 
+						"						  Origem: GRU - Aeroporto\r\n" + 
+						"						</div>\r\n" + 
+						"						<div class=\"col-4\">\r\n" + 
+						"						  Destino: "+ rs.getString("nome")+"\r\n" + 
+						"						</div>\r\n" + 
+						"					  </div>\r\n" + 
+						"				</h5>\r\n" + 
+						"				<p class=\"card-text\">\r\n" + 
+						"					<h6>\r\n" + 
+						"					<form id=\"alterar-form\" method=\"POST\" >" +
+						"	  					<div class=\"row justify-content-center\">\r\n" + 
+						"							<div class=\"col-5\">\r\n" + 
+						"		  						Nome da companhia aérea: " + "<input type=\"text\" class=\"form-control\" placeholder=\"Digite o nome da companhia:\" name=\"cxnome\" id=\"cxnome\">" +
+						"							</div>\r\n" + 
+						"							<div class=\"col-4\">\r\n" + 
+						"		  						Classe: " + "      <select id=\"cxclasse\" name=\"cxclasse\" class=\"form-control\">\r\n" + 
+						"        						<option selected value=\"1\">Classe Econômica</option>\r\n" + 
+						"        						<option value=\"2\">Classe Executiva</option>\r\n" + 
+						"      							</select>" + 
+						"							</div>\r\n" + 
+						"							<div class=\"col-3\">\r\n" + 
+						"								Preço: " + "<input type=\"text\" class=\"form-control\" placeholder=\"Digite o preço\" name=\"cxpreco\" id=\"cxpreco\">" +
+						"							</div>\r\n" + 
+						"	  					</div>\r\n" + 
+						"  				</h6>\r\n" + 
+						"<input type=\"hidden\" id=\"id\" name=\"id\" value="+idlinha+">" +
+						"				</p><form>" +
+						"<div class=\"row justify-content-center\">\r\n" + 
+						"	<div class=\"col-2\">\r\n" + 
+						"		<button type=\"submit\" class=\"btn btn-primary\">Alterar</button>\r\n" + 
+						"	</div>\r\n" + 
+						"</div>" +
+						"</div></div></div></div>";
+	
+	</div>
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+
+
+<% 	
+	}
+	else{
+		response.sendRedirect("index.jsp");
+	}
+%>

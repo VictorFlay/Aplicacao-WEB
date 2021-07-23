@@ -7,29 +7,8 @@ import database.DBQuery;
 
 public class Localizacao {
 	private String nome;
-	private int promocao;
+	private String url;
 	
-	
-	
-	
-	public int getPromocao() {
-		return promocao;
-	}
-
-	public void setPromocao(int promocao) {
-		this.promocao = promocao;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-
-
 	private String tableName = "";
 	private String fieldsName = "";
 	private String keyField = "";
@@ -44,32 +23,74 @@ public class Localizacao {
 		this.dbQuery = new DBQuery(this.tableName, this.fieldsName, this.keyField);
 	}
 	
-	public Localizacao(String nome, int promocao) {
-		this.tableName = "passagens";
-		this.fieldsName = "localizacao, preco, promocao";
-		this.keyField = "idPassagem";
+	public Localizacao(String nome, String url) {
+		this.tableName = "localizacao";
+		this.fieldsName = "nome, URL";
+		this.keyField = "idLocalizacao";
 		this.dbQuery = new DBQuery(this.tableName, this.fieldsName, this.keyField);
 
 		this.setNome(nome);
-		this.setPromocao(promocao);
+		this.setUrl(url);
 	}
 	
 
 	
 	
-	public void save() {
-		this.dbQuery.insert(this.toArray());
-	}
+
 	
 	public String[] toArray() {
 		return(
 			new String[] {
-				""+this.getNome()
+				""+this.getNome(),
+				""+this.getUrl()
 			}
 		);
 	}
 
+	public String localizacoes() {
+		ResultSet rs = this.dbQuery.selectLocalizacao("");
+		String saida = "<select multiple class=\"form-control buscarloca\">";
+		
+		try {
+			while(rs.next()) {
+				saida += "<option value="+ rs.getInt("id")+" name=\"opcaoid\" class=\"jss32\" id=\"opcaoid\">"+ rs.getString("nome") + "</option>";
+			}
+			saida += "</select>";
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return(saida);
+	}
 	
+	public String localizacoesNotKey() {
+		ResultSet rs = this.dbQuery.selectLocalizacaoNotKey("NOT EXISTS (SELECT pa.idLocalizacao FROM passagem pa WHERE l.idLocalizacao = pa.idLocalizacao)");
+		String saida = "<select id=\"cxlocalizacao\" name=\"cxlocalizacao\" class=\"form-control\">";
+		try {
+			while(rs.next()) {
+				saida += "<option value="+ rs.getInt("id")+" name=\"cxid\" id=\"cxid\">"+ rs.getString("nome") + "</option>";
+			}
+			saida += "</select>";
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return(saida);
+	}
+	
+	
+	public boolean save() {
+		ResultSet rs = this.dbQuery.select("nome = '"+this.getNome()+"' or URL='"+this.getUrl()+"'");
+		try {
+			while(rs.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+
+		}
+		this.dbQuery.insert(this.toArray());
+		return false;
+	}
 
 	
 	
@@ -90,6 +111,21 @@ public class Localizacao {
 	
 	
 
-	
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 	
 }

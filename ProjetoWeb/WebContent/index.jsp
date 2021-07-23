@@ -1,4 +1,7 @@
+<%@page import="model.Usuario"%>
+<%@page import="model.Localizacao"%>
 <%@page import="model.Passagem" %>
+<%@page import="model.LinhaAerea" %>
 <%@page import="model.LinhaAerea" %>
 
 <html lang="pt">
@@ -23,7 +26,10 @@
     	String carousel = new Passagem().CarouselPromocao();
     	String carouselcards = new Passagem().CarouselCards();
     	String nome = (String) session.getAttribute("nome");
-    	String localizacao = new LinhaAerea().localizacao();
+    	String localizacao = new Localizacao().localizacoes();
+		String nivelusuario = (String) session.getAttribute("nivelusuario");
+		int converte = new Usuario().convert(nivelusuario);
+		
     %>
 </head>
 <body>
@@ -56,7 +62,7 @@
         
   	
   	
-	<% if(nome == null){ %>
+	<% if(converte == 0){ %>
     <div class="col-1 col-lg-1 mt-4">
       			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login" data-whatever="@mdo">Login</button>
 				
@@ -190,16 +196,44 @@
   			</div>
 	<% }
 	
-	else{
+	else if(converte == 1){
 	%>
-	<div class="row justify-content-end">
+
+	
+		<div class="row justify-content-end">
+			<div class="col-1 col-lg-1 mt-4 ml-4">
+				<a href="deslogar.jsp?pag=1">
+				<button type="button" class="btn btn-primary">Deslogar</button>
+		        </a>
+		    </div>
+	    </div>
+  
+
+	<% } else{%>
+	
+				    <div class="col-4 col-lg-1 mt-4 ml-2">
+				<div class="dropdown">
+				  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				   ADM
+				  </a>
+				
+				  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+				    <a class="dropdown-item" href="adicionarlocalizacao.jsp">Adicionar Localização</a>
+				    <a class="dropdown-item" href="adicionarpassagem.jsp">Adicionar Passagem</a>
+				    <a class="dropdown-item" href="#">Alguma coisa aqui</a>
+				  </div>
+				</div>
+
+
+		    </div>
+	
+
 		<div class="col-1 col-lg-1 mt-4 ml-4">
 			<a href="deslogar.jsp?pag=1">
 			<button type="button" class="btn btn-primary">Deslogar</button>
 	        </a>
 	    </div>
-    </div>
-
+	
 	<% } %>
 
 	</div>

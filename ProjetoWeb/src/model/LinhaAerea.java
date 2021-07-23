@@ -2,6 +2,8 @@ package model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 import database.DBQuery;
 
@@ -11,6 +13,8 @@ public class LinhaAerea {
 	private String nomeEmpresa;
 	private float preco;
 	private int classe;
+	
+	Locale ptBr = new Locale("pt", "BR");
 	
 	private String tableName = "";
 	private String fieldsName = "";
@@ -105,7 +109,7 @@ public class LinhaAerea {
 						"		  						Classe: " + (rs.getInt("classe") == 1?"Classe Econômica" : "Classe Executiva") + 
 						"							</div>\r\n" + 
 						"							<div class=\"col-3\">\r\n" + 
-						"								Preço: " + rs.getFloat("preco") +
+						"								Preço: " + NumberFormat.getCurrencyInstance(ptBr).format(rs.getFloat("preco")) +
 						"							</div>\r\n" + 
 						"	  					</div>\r\n" + 
 						"  				</h6>\r\n" + 
@@ -210,7 +214,7 @@ public class LinhaAerea {
 						"		  						Classe: " + (rs.getInt("classe") == 1?"Classe Econômica" : "Classe Executiva") + 
 						"							</div>\r\n" + 
 						"							<div class=\"col-3\">\r\n" + 
-						"								Preço: " + rs.getFloat("preco") +
+						"								Preço: " + NumberFormat.getCurrencyInstance(ptBr).format(rs.getFloat("preco")) +
 						"							</div>\r\n" + 
 						"	  					</div>\r\n" + 
 						"  				</h6>\r\n" + 
@@ -316,7 +320,7 @@ public class LinhaAerea {
 						"		  						Classe: " + (rs.getInt("classe") == 1?"Classe Econômica" : "Classe Executiva") + 
 						"							</div>\r\n" + 
 						"							<div class=\"col-3\">\r\n" + 
-						"								Preço: " + rs.getFloat("preco") +
+						"								Preço: " + NumberFormat.getCurrencyInstance(ptBr).format(rs.getFloat("preco")) +
 						"							</div>\r\n" + 
 						"	  					</div>\r\n" + 
 						"  				</h6>\r\n" + 
@@ -400,22 +404,7 @@ public class LinhaAerea {
 	}
 	
 	
-	public String localizacao() {
-		ResultSet rs = this.dbQuery.selectLocalizacao("");
-		String saida = "<select multiple class=\"form-control buscarloca\">";
-		
-		try {
-			while(rs.next()) {
-				saida += "<option value="+ rs.getInt("id")+" name=\"opcaoid\" class=\"jss32\" id=\"opcaoid\">"+ rs.getString("nome") + "</option>";
-			}
-			saida += "</select>";
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return(saida);
-	}
+
 	
 	public String classes() {
 		String saida = "<select multiple class=\"form-control jss32 buscarclasse\" name=\"classe\" id=\"classe\">";

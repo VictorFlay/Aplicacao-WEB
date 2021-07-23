@@ -39,7 +39,6 @@ public class Register extends HttpServlet {
 	@SuppressWarnings("unchecked")
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
 		response.setContentType(CONTENT_TYPE);
 		

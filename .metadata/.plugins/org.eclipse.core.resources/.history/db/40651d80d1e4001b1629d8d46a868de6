@@ -1,7 +1,0 @@
-<%
-	String pag = request.getParameter("pag");
-	session.invalidate();
-
-	
-
-%>

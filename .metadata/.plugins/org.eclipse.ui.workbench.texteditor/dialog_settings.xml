@@ -6,23 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="Algum dos campos estão vázios"/>
+		<item key="selection" value="alterar"/>
 		<list key="findhistory">
+			<item value="alterar"/>
+			<item value="up"/>
+			<item value="upgrade"/>
+			<item value="update"/>
+			<item value="edit"/>
+			<item value="editar"/>
+			<item value="form"/>
+			<item value="alter-form"/>
+			<item value="adm"/>
+			<item value="comprar"/>
+			<item value="tipoclasse"/>
+			<item value="center"/>
+			<item value="preencha"/>
+			<item value="login"/>
 			<item value="Algum dos campos estão vázios"/>
-			<item value="Algum dos campos "/>
-			<item value="elementos"/>
-			<item value="&lt;%@page import=&quot;model.Compra&quot;%&gt;"/>
-			<item value="excluir"/>
-			<item value="zz"/>
-			<item value="zzz"/>
-			<item value="delete"/>
-			<item value="deleteLinha"/>
-			<item value="deletelinha"/>
-			<item value="nivelusuario"/>
-			<item value="alert"/>
-			<item value="seu primeiro"/>
-			<item value="seu"/>
-			<item value="buscar-form"/>
 		</list>
 		<list key="replacehistory">
 		</list>
