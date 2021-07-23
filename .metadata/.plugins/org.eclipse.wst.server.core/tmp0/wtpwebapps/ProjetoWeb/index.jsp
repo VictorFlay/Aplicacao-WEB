@@ -56,7 +56,7 @@
     <div class="row">
     
     
-        <div class="col-9 col-lg-9 justify-content-between mt-4 ml-2" id="mensagem">
+        <div class="col-8 col-lg-9 justify-content-between mt-4 ml-2" id="mensagem">
             "Seu primeiro destino é aqui"
         </div>
         
@@ -211,7 +211,7 @@
 
 	<% } else{%>
 	
-				    <div class="col-4 col-lg-1 mt-4 ml-2">
+				    <div class="col-1 col-lg-1 mt-4 ml-2">
 				<div class="dropdown">
 				  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				   ADM

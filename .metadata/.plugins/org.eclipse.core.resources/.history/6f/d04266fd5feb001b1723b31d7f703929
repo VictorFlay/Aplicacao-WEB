@@ -17,7 +17,7 @@
 		String localizacao = new Localizacao().localizacoes();
 		String linhaaerea = new LinhaAerea().linhaAereaEspecifica(idpassagem, id);
 		String alterarlinha = new LinhaAerea().alterarLinha(idpassagem, id);
-		if(converte == 2 && idusuario != null && idpassagem != null && id != null){
+		if(converte == 2){
 	%>
 	
 	<%@ page contentType="text/html; charset=UTF-8" %>

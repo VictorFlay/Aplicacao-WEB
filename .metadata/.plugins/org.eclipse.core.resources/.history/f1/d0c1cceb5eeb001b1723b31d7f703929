@@ -65,6 +65,8 @@ public class InsertPassagem extends HttpServlet {
 				mensagem = gson.toJson(jo);
 				out.print(mensagem);
 			}
+			
+			
 		}
 	}
 

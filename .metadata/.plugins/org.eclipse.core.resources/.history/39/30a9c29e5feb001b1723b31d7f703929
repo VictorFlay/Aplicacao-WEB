@@ -15,9 +15,10 @@
 		String nivelusuario = (String) session.getAttribute("nivelusuario");
 		int converte = new Usuario().convert(nivelusuario);
 		String localizacao = new Localizacao().localizacoes();
+		String classes = new LinhaAerea().classes();
 		String linhaaerea = new LinhaAerea().linhaAereaEspecifica(idpassagem, id);
 		String alterarlinha = new LinhaAerea().alterarLinha(idpassagem, id);
-		if(converte == 2 && idusuario != null && idpassagem != null && id != null){
+		if(converte == 2){
 	%>
 	
 	<%@ page contentType="text/html; charset=UTF-8" %>
@@ -116,7 +117,5 @@
 </body>
 
 <% 
-		}else{
-			response.sendRedirect("index.jsp");
 		}
 %>
