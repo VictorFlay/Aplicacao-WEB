@@ -192,6 +192,33 @@ $(document).ready(function(){
 				})
 				
 			});
+		 
+		 
+		 $( '#linha-form' ).submit(function(event){
+			 	event.preventDefault();
+				var data ={
+						idpassagem: $('#cxpassagem').val(),
+						nome: $('#cxnome').val(),
+						preco : $('#cxpreco').val(),
+						classe: $('#cxclasse').val()
+				}	
+				
+				$.ajax({
+					url: "/ProjetoWeb/InsertLinha",
+					type: "post",
+					dataType: "json",
+					data: data,
+					success: function(data, textStatus, jqXHR){
+						if(data.status){
+							alert(data.mensagem);
+							window.location.href = window.location.href;
+						}else{
+							alert(data.mensagem)
+						}
+					}
+				})
+				
+			});
 	
 		 
 

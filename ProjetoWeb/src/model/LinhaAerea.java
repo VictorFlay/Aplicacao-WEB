@@ -24,18 +24,19 @@ public class LinhaAerea {
 	
 	public LinhaAerea() {
 		this.tableName = "linha_aerea";
-		this.fieldsName = "nomeEmpresa, preco, classe";
+		this.fieldsName = "idPassagem, nomeEmpresa, preco, classe";
 		this.keyField = "idLinhaAerea";
 		this.dbQuery = new DBQuery(this.tableName, this.fieldsName, this.keyField);
 	}
 	
 	
-	public LinhaAerea(String nomeEmpresa, String preco, String classe) {
+	public LinhaAerea(String idPassagem, String nomeEmpresa, String preco, String classe) {
 		this.tableName = "linha_aerea";
-		this.fieldsName = "nomeEmpresa, preco, classe";
+		this.fieldsName = "idPassagem, nomeEmpresa, preco, classe";
 		this.keyField = "idLinhaAerea";
 		this.dbQuery = new DBQuery(this.tableName, this.fieldsName, this.keyField);
 		
+		this.setIdPassagem(Integer.parseInt(idPassagem));
 		this.setNomeEmpresa(nomeEmpresa);
 		this.setPreco(Float.parseFloat(preco));
 		this.setClasse(Integer.parseInt(classe));
@@ -396,6 +397,7 @@ public class LinhaAerea {
 	public String[] toArray() {
 		return(
 			new String[] {
+					""+this.getIdPassagem(),
 					""+this.getNomeEmpresa(),
 					""+this.getPreco(),
 					""+this.getClasse(),
@@ -415,12 +417,17 @@ public class LinhaAerea {
 		return(saida);
 	}
 	
+	
 	public void alterar(String idpassagem, String preco, String classe,String id) {
 		this.dbQuery.update(idpassagem, preco, classe, id);
 	}
 
+	/**/
+	public void save() {
+		this.dbQuery.insert(this.toArray());
+	}
 	
-	
+
 	
 	
 	public int getIdLinhaAerea() {

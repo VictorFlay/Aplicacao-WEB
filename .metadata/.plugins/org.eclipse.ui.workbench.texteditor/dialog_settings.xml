@@ -6,30 +6,31 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="alterar"/>
+		<item key="selection" value="Seu primeiro destino"/>
 		<list key="findhistory">
-			<item value="alterar"/>
-			<item value="up"/>
-			<item value="upgrade"/>
-			<item value="update"/>
-			<item value="edit"/>
-			<item value="editar"/>
-			<item value="form"/>
-			<item value="alter-form"/>
+			<item value="seu primeiro destino"/>
 			<item value="adm"/>
-			<item value="comprar"/>
-			<item value="tipoclasse"/>
-			<item value="center"/>
-			<item value="preencha"/>
+			<item value="end"/>
+			<item value="emd"/>
+			<item value="deslogar"/>
+			<item value="Login"/>
 			<item value="login"/>
-			<item value="Algum dos campos estão vázios"/>
+			<item value="menu"/>
+			<item value="menupr"/>
+			<item value="&gt;&quot;"/>
+			<item value="+"/>
+			<item value="&quot;    "/>
+			<item value="&quot;       "/>
+			<item value="&quot;          "/>
+			<item value="\"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="549"/>
-		<item key="DIALOG_Y_ORIGIN" value="112"/>
+		<item key="DIALOG_X_ORIGIN" value="878"/>
+		<item key="DIALOG_Y_ORIGIN" value="231"/>
 		<item key="DIALOG_WIDTH" value="284"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>

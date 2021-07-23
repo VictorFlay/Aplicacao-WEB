@@ -87,15 +87,15 @@
 		</div>
 	
 	<div class="row justify-content-center mt-2">
-		<div class="col-lg-8 mt-1">
+		<div class="col-lg-9 mt-1">
 			<div class="card" >
 	  				<div class="card-body">
 				    <h4 class="card-title text-center">Dados</h4>
 					<form id="linha-form" method="POST">
 					
 					  <div class="form-row">
-					<div class="form-group col-md-4">
-					      <label for="nome" class="h6">Selecione a Passagem:</label>
+					<div class="form-group col-md-3">
+					      <label for="cxpassagem" class="h6">Selecione a Passagem:</label>
 					     
 					     	<%
 					     		out.print(passagem);
@@ -104,15 +104,31 @@
 					     
 					    </div>
 					    
-					    <div class="form-group col-md-5 ml-5">
-					      <label for="inputPassword4" class="h6">URL imagem:</label>
-					      <input type="text" class="form-control" id="cxurl" name="cxurl" placeholder="Digite a URL da imagem...">
+					    <div class="form-group col-md-2 ml-5">
+					      <label for="cxnome" class="h6">Empresa</label>
+					      <input type="text" class="form-control" id="cxnome" name="cxnome" placeholder="Nome empresa...">
 					    </div>
 					    
-					  	<div class="form-group col-md-2 mt-4 ml-5">
-				        	<button type="submit" class="btn btn-primary">Inserir</button>
-				      </div>
+					    <div class="form-group col-md-2 ml-5">
+					      <label for="cxpreco" class="h6">Preço: </label>
+					      <input type="text" class="form-control" id="cxpreco" name="cxpreco" placeholder="Digite o preço...">
+					    </div>
+					    
+					    <div class="form-group col-md-3 ml-5">
+					      <label for="cxclasse" class="h6">Classe: </label>
+							<select id="cxclasse" name="cxclasse" class="form-control">
+								<option selected value="1">Classe Econômica</option>
+							<option value="2">Classe Executiva</option>
+							</select>
+					    </div>			
+					    
+
 				      
+				      </div>
+				      					  <div class="row justify-content-center">
+					  	<div class="form-group col-md-1">
+				        	<button type="submit" class="btn btn-primary">Adicionar</button>
+				      </div>
 				      </div>
 					</form>
 				</div>
