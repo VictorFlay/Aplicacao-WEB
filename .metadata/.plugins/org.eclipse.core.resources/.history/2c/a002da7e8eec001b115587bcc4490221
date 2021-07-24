@@ -1,0 +1,15 @@
+<%@page import="model.Usuario"%>
+<%
+	String idusuario = request.getParameter("idusuario");
+	String nivelusuario = (String) session.getAttribute("nivelusuario");
+	int converte = new Usuario().convert(nivelusuario);
+	
+	if(nome != null && classe != null & preco != null && converte == 2){
+		out.print("nome: " + nome + "classe: " + classe + "preco: " + preco);
+	}else{
+		response.sendRedirect("index.jsp");
+	}
+	
+
+	
+%>

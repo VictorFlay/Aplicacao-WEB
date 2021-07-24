@@ -83,7 +83,6 @@ public class Auth extends HttpServlet {
 					out.print(mensagem);
 				}
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}finally {
 				try {

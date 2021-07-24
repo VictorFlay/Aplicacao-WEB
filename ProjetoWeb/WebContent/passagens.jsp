@@ -211,6 +211,7 @@
 				    <a class="dropdown-item" href="adicionarlocalizacao.jsp">Adicionar Localização</a>
 				    <a class="dropdown-item" href="adicionarpassagem.jsp">Adicionar Passagem</a>
 				    <a class="dropdown-item" href="adicionarlinha.jsp">Adicionar Companhia Aérea</a>
+				    <a class="dropdown-item" href="usuariomenu.jsp">Menu Usuário</a>
 				  </div>
 				</div>
 		    </div>

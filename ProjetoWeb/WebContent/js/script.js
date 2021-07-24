@@ -39,7 +39,7 @@ $(document).ready(function(){
 				success: function(data, textStatus, jqXHR){
 					if(data.status){
 						alert(data.mensagem);
-						window.location.href = 'teste1.jsp';
+						window.location.href = $(location).attr('href');
 					}else{
 						$( '#erro' ).text( data.mensagem );
 						$( '#erro' ).css({'display': 'block'});
@@ -47,6 +47,14 @@ $(document).ready(function(){
 				}
 			})
 			
+		});
+		
+		$('.excluirusuario').click(function(){
+			alert("Usuário excluido com sucesso!");
+		});
+		
+		$('.alterarusuario').click(function(){
+			alert("Nível do usuário modificado com sucesso!");
 		});
 		
 		$('.buscarlocalizacao').on('click', function(){

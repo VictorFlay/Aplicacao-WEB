@@ -3,7 +3,6 @@
 	<%
 		String nivelusuario = (String) session.getAttribute("nivelusuario");
 		int converte = new Usuario().convert(nivelusuario);
-		String passagem = new Passagem().passagemDisponivel();
 		String usuarios = new Usuario().usuarios();
 		if(converte == 2){
 	%>
@@ -42,8 +41,7 @@
         
         <div class="row mt-2 ml-2">
 			<div class="col-8 col-lg-9 justify-content-between ">
-				<!-- Não esquece de voltar com o id -->
-	             <a href="passagens.jsp">
+	             <a href="index.jsp">
 			    	<button type="button" class="btn btn-primary">Voltar</button>
 			    </a>
 			 </div>  
@@ -58,6 +56,7 @@
 				    <a class="dropdown-item" href="adicionarlocalizacao.jsp">Adicionar Localização</a>
 				    <a class="dropdown-item" href="adicionarpassagem.jsp">Adicionar Passagem</a>
 				    <a class="dropdown-item" href="adicionarlinha.jsp">Adicionar Companhia Aérea</a>
+				    <a class="dropdown-item" href="usuariomenu.jsp">Menu Usuário</a>
 				  </div>
 				</div>
 

@@ -6,8 +6,15 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="Seu primeiro destino"/>
+		<item key="selection" value="voltar"/>
 		<list key="findhistory">
+			<item value="vol"/>
+			<item value="voltar"/>
+			<item value="perfil"/>
+			<item value="adicionar"/>
+			<item value="adicionar]"/>
+			<item value="cxid"/>
+			<item value="select"/>
 			<item value="seu primeiro destino"/>
 			<item value="adm"/>
 			<item value="end"/>
@@ -16,13 +23,6 @@
 			<item value="Login"/>
 			<item value="login"/>
 			<item value="menu"/>
-			<item value="menupr"/>
-			<item value="&gt;&quot;"/>
-			<item value="+"/>
-			<item value="&quot;    "/>
-			<item value="&quot;       "/>
-			<item value="&quot;          "/>
-			<item value="\"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

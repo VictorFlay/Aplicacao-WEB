@@ -1,0 +1,11 @@
+<%@page import="model.Usuario"%>
+<%
+	int nivelusuario = Integer.valueOf(request.getParameter("idusuario"));
+	int idusuario = Integer.valueOf(request.getParameter("idusuario"));
+	String nivelusuario = (String) session.getAttribute("nivelusuario");
+	int converte = new Usuario().convert(nivelusuario);
+
+	
+
+	
+%>

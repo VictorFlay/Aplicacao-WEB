@@ -19,7 +19,6 @@ public class LinhaAerea {
 	private String tableName = "";
 	private String fieldsName = "";
 	private String keyField = "";
-	private String where = "";
 	private DBQuery dbQuery = null;
 	
 	public LinhaAerea() {
