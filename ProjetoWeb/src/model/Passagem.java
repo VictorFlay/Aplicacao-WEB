@@ -239,7 +239,7 @@ public class Passagem {
 		String saida = "<select id=\"cxpassagem\" name=\"cxpassagem\" class=\"form-control\">";
 		try {
 			while(rs.next()) {
-				saida += "<option value="+ rs.getInt("idPassagem")+" name=\"cxid\" id=\"cxid\">"+ rs.getString("nome") + "</option>";
+				saida += "<option value="+ rs.getInt("idPassagem")+">"+ rs.getString("nome") + "</option>";
 			}
 			saida += "</select>";
 			

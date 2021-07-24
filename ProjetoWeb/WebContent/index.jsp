@@ -220,7 +220,8 @@
 				  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 				    <a class="dropdown-item" href="adicionarlocalizacao.jsp">Adicionar Localização</a>
 				    <a class="dropdown-item" href="adicionarpassagem.jsp">Adicionar Passagem</a>
-				    <a class="dropdown-item" href="#">Alguma coisa aqui</a>
+				    <a class="dropdown-item" href="adicionarlinha.jsp">Adicionar Companhia Aérea</a>
+				    <a class="dropdown-item" href="usuariomenu.jsp">Menu Usuários</a>
 				  </div>
 				</div>
 

@@ -22,7 +22,7 @@ public class Usuario {
 	
 	public Usuario() {
 		this.tableName = "usuario";
-		this.fieldsName = "nome, login, senha, telefone, estado";
+		this.fieldsName = "nome, login, senha, telefone, estado, nivelusuario";
 		this.keyField = "idUsuario";
 		this.dbQuery = new DBQuery(this.tableName, this.fieldsName, this.keyField);
 		
@@ -104,7 +104,69 @@ public class Usuario {
 	}
 
 	
-	
+	public String usuarios() {
+		ResultSet rs = this.dbQuery.select("");
+		String saida = "<div class=\"row \">";
+		try {
+			while(rs.next()) {
+				saida += "		<div class=\"col-md-3 mt-2\">\r\n" + 
+						"		<div class=\"card\">\r\n" + 
+						"		  <div class=\"card-body\">\r\n" + 
+						"<div class=\"col text-center\">" +
+						"<img src=\"img/perfil.png\" class=\"perfil\" >" +
+						"</h5>" +
+						"</div>" + 
+						"<div class=\"row mt-1\">\r\n" + 
+						"	<div class=\"col-md-12\">" +
+						"		    <h6 class=\"card-text\">Nome Completo: "+rs.getString("nome")+ "</h6>\r\n" + 
+						"	</div>" +
+						"</div>" +
+						"<div class=\"row mt-1\">\r\n" + 
+						"	<div class=\"col-md-12\">" +
+						"		    <h6 class=\"card-text\">Login: "+rs.getString("login")+ "</h6>\r\n" + 
+						"	</div>" +
+						"</div>" +
+						"<div class=\"row mt-1\">\r\n" + 
+						"	<div class=\"col-md-12\">" +
+						"		    <h6 class=\"card-text\">Senha: "+rs.getString("senha")+ "</h6>\r\n" + 
+						"	</div>" +
+						"</div>" +
+						"<div class=\"row mt-1\">\r\n" + 
+						"	<div class=\"col-md-12\">" +
+						"		    <h6 class=\"card-text\">Telefone: "+rs.getString("telefone")+ "</h6>\r\n" + 
+						"	</div>" +
+						"</div>" +
+						"<div class=\"row mt-1\">\r\n" + 
+						"	<div class=\"col-md-12\">" +
+						"		    <h6 class=\"card-text\">UF: "+rs.getString("estado")+ "</h6>\r\n" + 
+						"	</div>" +
+						"</div>" +
+						"<div class=\"row mt-1\">\r\n" + 
+						"	<div class=\"col-md-12\">" +
+						"		    <h6 class=\"card-text\">Nível Usuário: "+ (rs.getInt("nivelusuario")==1?"Usuário comum":"Administrador") + "</h6>\r\n" + 
+						"	</div>" +
+						"</div>" +
+						"  <div class=\"row justify-content-end\">\r\n" + 
+						"    <div class=\"col-4\">\r\n" + 
+						"		    <a href=\"#\" class=\"btn btn-primary\">Excluir</a>\r\n" + 
+						"    </div>\r\n" + 
+						"    <div class=\"col-4\">\r\n" + 
+						" <a href=\"#\" class=\"btn btn-primary\">Nível</a>\r\n" + 
+						"    </div>\r\n" + 
+						"  </div>" +
+						"		  </div>\r\n" + 
+						"		</div>\r\n" + 
+						"		</div>";
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		saida += "</div>";
+		return (saida);
+		
+	}
 	
 	
 	
