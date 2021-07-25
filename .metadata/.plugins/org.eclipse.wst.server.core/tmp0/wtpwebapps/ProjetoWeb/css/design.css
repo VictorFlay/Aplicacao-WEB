@@ -5,7 +5,7 @@
 #errobusca{
 	display: none;
 	color: white;
-    z-index: 1;
+    z-index: 0;
     font-size: 18px;
     font-weight: bold;
 }

@@ -11,26 +11,20 @@
 <html lang="pt">
 <head>
 
-
-	
-	<%@ page contentType="text/html; charset=UTF-8" %>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/design.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/design.css">
- 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+      
+    <!-- JQUEY e AJAX -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  	
+    <!-- Bootstrap CSS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-    <title>Adicionar localizacao</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <title>LocalizaÁ„o</title>
 </head>
 <body>
 
@@ -44,7 +38,7 @@
         <div class="row mt-2 ml-2">
 			<div class="col-8 col-lg-9 justify-content-between ">
 	             <a href="index.jsp">
-			    	<button type="button" class="btn btn-primary">Voltar</button>
+			    	<button type="button" class="btn btn-primary">Menu Principal</button>
 			    </a>
 			 </div>  
 			 
@@ -55,10 +49,10 @@
 				  </a>
 				
 				  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-				    <a class="dropdown-item" href="adicionarlocalizacao.jsp">Adicionar Localiza√ß√£o</a>
-				    <a class="dropdown-item" href="adicionarpassagem.jsp">Adicionar Passagem</a>
-				    <a class="dropdown-item" href="adicionarlinha.jsp">Adicionar Companhia A√©rea</a>
-				    <a class="dropdown-item" href="usuariomenu.jsp">Menu Usu√°rio</a>
+				    <a class="dropdown-item" href="adicionarlocalizacao.jsp">Menu LocalizaÁ„o</a>
+				    <a class="dropdown-item" href="adicionarpassagem.jsp">Menu Passagem</a>
+				    <a class="dropdown-item" href="adicionarlinha.jsp">Menu Companhia AÈrea</a>
+				    <a class="dropdown-item" href="usuariomenu.jsp">Menu Usu·rio</a>
 				  </div>
 				</div>
 
@@ -77,13 +71,13 @@
 	
 		<div class="row justify-content-center mt-4">
 			<div class="col-6 col-lg-3 text-center h2">
-				Adicionar Localiza√ß√£o
+				Adicionar LocalizaÁ„o
 			</div>
 		</div>
 	
 		<div class="row justify-content-center mt-5">
 			<div class="col-6 col-lg-5 text-center h3">
-				Formul√°rio para adicionar o pa√≠s
+				Formul·rio para adicionar o paÌs
 			</div>
 		</div>
 	
@@ -96,8 +90,8 @@
 					
 					  <div class="form-row">
 					    <div class="form-group col-md-4">
-					      <label for="nome" class="h6">Nome do pa√≠s e lugar:</label>
-					      <input type="text" class="form-control" id="cxnome" name="cxurl" placeholder="Exemplo (Brasil, S√£o Paulo)">
+					      <label for="nome" class="h6">Nome do paÌs e lugar:</label>
+					      <input type="text" class="form-control" id="cxnome" name="cxurl" placeholder="Exemplo (Brasil, S„o Paulo)">
 					    </div>
 					    
 					    <div class="form-group col-md-5 ml-5">

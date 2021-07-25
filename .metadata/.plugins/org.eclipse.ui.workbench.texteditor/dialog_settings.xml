@@ -6,23 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="voltar"/>
+		<item key="selection" value="delete"/>
 		<list key="findhistory">
+			<item value="delete"/>
+			<item value="&gt;"/>
+			<item value="&lt;"/>
+			<item value="50px"/>
+			<item value="bloco"/>
+			<item value="comprar"/>
+			<item value="compra"/>
+			<item value="selectCompr"/>
+			<item value="selectComp"/>
 			<item value="vol"/>
 			<item value="voltar"/>
 			<item value="perfil"/>
 			<item value="adicionar"/>
 			<item value="adicionar]"/>
 			<item value="cxid"/>
-			<item value="select"/>
-			<item value="seu primeiro destino"/>
-			<item value="adm"/>
-			<item value="end"/>
-			<item value="emd"/>
-			<item value="deslogar"/>
-			<item value="Login"/>
-			<item value="login"/>
-			<item value="menu"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

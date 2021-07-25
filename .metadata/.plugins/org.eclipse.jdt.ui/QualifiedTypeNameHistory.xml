@@ -5,9 +5,11 @@
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="javafx.scene.control.Alert"/>
 <fullyQualifiedTypeName name="model.Usuario"/>
-<fullyQualifiedTypeName name="model.Localizacao"/>
 <fullyQualifiedTypeName name="model.Passagem"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="model.LinhaAerea"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="model.Localizacao"/>
+<fullyQualifiedTypeName name="com.mysql.cj.xdevapi.Result"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 </qualifiedTypeNameHistroy>

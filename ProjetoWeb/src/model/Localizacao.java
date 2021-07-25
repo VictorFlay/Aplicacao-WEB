@@ -123,6 +123,11 @@ public class Localizacao {
 						"				Excluir" +
 						"			</button>\r\n"+
 						"		</a>" +
+						"		<a href="+"alterarlocalizacao.jsp?idlocalizacao="+rs.getInt("idLocalizacao")+">" +
+						"			<button type=\"button\" class=\"btn btn-primary excluirlocalizacao\" data-toggle=\"modal\" data-target=\"#myModal\">\r\n" + 
+						"				Alterar" +
+						"			</button>\r\n"+
+						"		</a>" +
 						"  </div>\r\n" + 
 						"</div></div>";
 			}
