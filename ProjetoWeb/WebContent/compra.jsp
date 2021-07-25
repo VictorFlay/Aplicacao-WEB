@@ -1,21 +1,24 @@
+<%@page import="model.Passagem"%>
 <%@page import="model.Usuario"%>
 <%@page import="model.Compra"%>
 <%
 	String nivelusuario = (String) session.getAttribute("nivelusuario");
 	int converte = new Usuario().convert(nivelusuario);
+	
+	if(converte == 1){
 	String idusuario = request.getParameter("idusuario");
 	String idpassagem = request.getParameter("idpassagem");
-	String idlinha = request.getParameter("idlinha");
-	
-	
-	
-	if((idusuario != null && idpassagem != null && idlinha != null) && converte == 1){
-		Compra compra = new Compra(idusuario, idpassagem, idlinha);
-		compra.save();
-		response.sendRedirect("passagens.jsp");
+	String destino = new Passagem().destino(idpassagem);
+	String nomelinha = request.getParameter("nomelinha");
+	String preco = request.getParameter("preco");
+	String classe = request.getParameter("classe");
+		
+	Compra compra = new Compra(idusuario, destino, nomelinha, preco, classe);
+	response.sendRedirect("passagens.jsp?idpassagem="+idpassagem);
+	compra.save();
 	}else{
 		response.sendRedirect("index.jsp");
 	}
 	
-		
+	
 %>

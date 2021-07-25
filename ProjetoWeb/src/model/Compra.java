@@ -8,74 +8,95 @@ import java.util.Locale;
 import database.DBQuery;
 
 public class Compra {
-	private int idCompra;
-	private int idUsuario;
-	private int idPassagem;
-	private int idLinhaAerea;
+	private int idusuario;
+	private String nomedestino;
+	private String nomelinha;
+	private float preco;
+	private int classe;
 	
 	
 	private String tableName = "";
 	private String fieldsName = "";
 	private String keyField = "";
-	private String where = "";
 	private DBQuery dbQuery = null;
 	
 	
-	public Compra(String idUsuario, String idPassagem, String idLinhaAerea) {
+	
+	public Compra(String idusuario, String nomedestino, String nomelinha, String preco, String classe) {
 		this.tableName = "compra";
-		this.fieldsName = "idUsuario, idPassagem, idLinhaAerea";
-		this.keyField = "idCompra";
+		this.fieldsName = "idUsuario, nomeDestino, nomeLinha, preco, classe";
+		this.keyField = "notaFiscal";
 		this.dbQuery = new DBQuery(this.tableName, this.fieldsName, this.keyField);
 		
-		this.setIdUsuario(Integer.valueOf(idUsuario));
-		this.setIdPassagem(Integer.valueOf(idPassagem));
-		this.setIdLinhaAerea(Integer.valueOf(idLinhaAerea));
-		this.setIdUsuario(Integer.valueOf(idUsuario));
+		this.setIdusuario(Integer.parseInt(idusuario));
+		this.setNomedestino(nomedestino);
+		this.setNomelinha(nomelinha);
+		this.setPreco(Float.parseFloat(preco));
+		this.setClasse(Integer.parseInt(classe));
+		
 	}
 	
 	
-	
+
 	public String[] toArray() {
 		return(
 			new String[] {
-				""+this.getIdUsuario(),
-				""+this.getIdPassagem(),
-				""+this.getIdLinhaAerea()
+				""+this.getIdusuario(),
+				""+this.getNomedestino(),
+				""+this.getNomelinha(),
+				""+this.getPreco(),
+				""+this.getClasse()
 			}
 		);
 	}
 	
 	
+	
 	public void save() {
 		this.dbQuery.insert(this.toArray());
 	}
+
+
+
+
+	public int getIdusuario() {
+		return idusuario;
+	}
+
+	public void setIdusuario(int idusuario) {
+		this.idusuario = idusuario;
+	}
+
+	public String getNomedestino() {
+		return nomedestino;
+	}
+
+	public void setNomedestino(String nomedestino) {
+		this.nomedestino = nomedestino;
+	}
+
+	public String getNomelinha() {
+		return nomelinha;
+	}
+
+	public void setNomelinha(String nomelinha) {
+		this.nomelinha = nomelinha;
+	}
+
+	public float getPreco() {
+		return preco;
+	}
+
+	public void setPreco(float preco) {
+		this.preco = preco;
+	}
+
+	public int getClasse() {
+		return classe;
+	}
+
+	public void setClasse(int classe) {
+		this.classe = classe;
+	}
 	
-	
-	public int getIdCompra() {
-		return idCompra;
-	}
-
-	public void setIdCompra(int idCompra) {
-		this.idCompra = idCompra;
-	}
-
-	public int getIdUsuario() {
-		return idUsuario;
-	}
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
-	}
-	public int getIdPassagem() {
-		return idPassagem;
-	}
-	public void setIdPassagem(int idPassagem) {
-		this.idPassagem = idPassagem;
-	}
-	public int getIdLinhaAerea() {
-		return idLinhaAerea;
-	}
-	public void setIdLinhaAerea(int idLinhaAerea) {
-		this.idLinhaAerea = idLinhaAerea;
-	}
-
 }

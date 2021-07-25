@@ -1,0 +1,15 @@
+<%@page import="model.Passagem"%>
+<%@page import="model.Usuario"%>
+<%@page import="model.Compra"%>
+<%
+	String nivelusuario = (String) session.getAttribute("nivelusuario");
+	int converte = new Usuario().convert(nivelusuario);
+	String idusuario = request.getParameter("idusuario");
+	String idpassagem = request.getParameter("idpassagem");
+	String destino = new Passagem().destino(idpassagem);
+	String idlinha = request.getParameter("nomelinha");
+	
+	
+
+	
+%>

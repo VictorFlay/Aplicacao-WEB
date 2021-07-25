@@ -1,0 +1,7 @@
+<%@page import="model.Usuario"%>
+<%
+	String nivelusuario = (String) session.getAttribute("nivelusuario");
+	int converte = new Usuario().convert(nivelusuario);
+
+
+%>

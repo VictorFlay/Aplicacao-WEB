@@ -147,7 +147,7 @@ public class LinhaAerea {
 						else if(nivelusuario == 1){
 						saida += "<div class=\"row justify-content-center\">" +
 								"<div class=\"col-2\">\r\n" + 
-								"<a href="+"compra.jsp?idusuario="+idusuario+"&idpassagem="+rs.getString("id")+"&idlinha="+rs.getString("li.idLinhaAerea")+">" +
+								"<a href="+"compra.jsp?idusuario="+idusuario+"&idpassagem="+rs.getString("id")+"&nomelinha="+rs.getString("empresa")+"&preco="+rs.getFloat("preco")+"&classe="+rs.getInt("classe")+">" +
 								"<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" id=\"comprarsucess\" data-target=\"#myModal\">\r\n" + 
 								"Comprar" +
 								"<input type=\"hidden\" id=\"teste\" value="+rs.getString("empresa")+">" +

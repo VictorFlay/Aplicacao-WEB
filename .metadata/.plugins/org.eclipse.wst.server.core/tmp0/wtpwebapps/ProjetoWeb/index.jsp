@@ -200,7 +200,19 @@
 	%>
 
 	
-		<div class="row justify-content-end">
+			<div class="col-1 col-lg-1 mt-4 ml-4">
+				<div class="dropdown">
+				  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				   Perfil
+				  </a>
+				  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+				    <a class="dropdown-item" href="historico.jsp">Histórico</a>
+				  </div>
+				  
+				</div>
+		    </div>	
+		
+		
 			<div class="col-1 col-lg-1 mt-4 ml-4">
 				<a href="deslogar.jsp?pag=1">
 				<button type="button" class="btn btn-primary">Deslogar</button>
@@ -286,11 +298,11 @@
 
       <div class="row mt-5">
         <div class="col-6 col-lg-6 jss37 mt-5" id="titulo">
-           <div class="row justify-content-center mt-5" id="mensagem"">
+           <div class="row justify-content-center mt-5" id="mensagem">
           		Passagens na promoção
            </div>
            
-			<div class="row justify-content-center" id="mensagem"">
+			<div class="row justify-content-center" id="mensagem">
           		Basta clicar na imagem ao lado
           		</div>
 
@@ -328,7 +340,7 @@
 
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 
 

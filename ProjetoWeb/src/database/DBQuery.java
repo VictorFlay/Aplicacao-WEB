@@ -102,6 +102,16 @@ public class DBQuery {
 		return this.query(sql);
 	}
 	
+	
+	public ResultSet destino(String where) {
+		String sql = "select localizacao.nome as nome from passagem ";
+		sql += " inner join localizacao on passagem.idLocalizacao = localizacao.idLocalizacao ";
+		sql += (( where!="") ? " WHERE "+ where : "" );
+		System.out.print(sql);
+		return this.query(sql);
+		
+	}
+	
 	public ResultSet linhasDisponivel(String where) {
 		String sql = "select p.idPassagem, lo.nome, li.nomeEmpresa, li.classe as classe from passagem p  ";
 		sql += "inner join localizacao lo on p.idLocalizacao = lo.idLocalizacao ";

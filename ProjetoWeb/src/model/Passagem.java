@@ -18,7 +18,6 @@ public class Passagem {
 	private String tableName = "";
 	private String fieldsName = "";
 	private String keyField = "";
-	private String where = "";
 	private DBQuery dbQuery = null;
 	
 	Locale ptBr = new Locale("pt", "BR");
@@ -66,7 +65,24 @@ public class Passagem {
 		return false;
 	}
 	
-
+	
+	public String destino(String idpassagem) {
+		ResultSet rs = this.dbQuery.destino("passagem.idPassagem='"+idpassagem+"'");
+		String saida = null;
+		
+		try {
+			while(rs.next()) {
+				saida = rs.getString("nome");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return(saida);
+	}
+	
+	
 	public String BuscarLocalizacao(String id, String classe) {
 		ResultSet rs = this.dbQuery.linhasDisponivel("p.idPassagem='"+id+"' and classe='"+classe+"'");
 		String saida = "<p>";
