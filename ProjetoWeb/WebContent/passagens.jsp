@@ -192,13 +192,25 @@
 	
 	else if(converte == 1){
 	%>
-		<div class="row justify-content-end">
-	    	<div class="col-4 col-lg-1 mt-4 ml-4">
-				<a href="deslogar.jsp?pag=2&idpassagem=<%=idpassagem%>">
+			<div class="col-1 col-lg-1 mt-4 ml-4">
+				<div class="dropdown">
+				  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				   Perfil
+				  </a>
+				  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+				    <a class="dropdown-item" href="historico.jsp">Histórico</a>
+				  </div>
+				  
+				</div>
+		    </div>	
+		
+		
+			<div class="col-1 col-lg-1 mt-4 ml-4">
+				<a href="deslogar.jsp?pag=1">
 				<button type="button" class="btn btn-primary">Deslogar</button>
 		        </a>
 		    </div>
-		</div>
+	    </div>
 
 <%}else{%>
 			    <div class="col-4 col-lg-1 mt-4 ml-2">
