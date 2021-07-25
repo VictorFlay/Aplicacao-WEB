@@ -772,3 +772,9 @@ hr.jss14{
   	image-rendering: crisp-edges;
   	image-rendering: pixelated;
 }
+
+
+.bloco{
+	widht: 50px;
+	height: 50px;
+}

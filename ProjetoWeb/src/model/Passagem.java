@@ -185,12 +185,9 @@ public class Passagem {
 							"		<div class=\"row\">";
 				}else if(i % 3 == 0) {
 					saida += "<div class=\"carousel-item dr\">\r\n" + 
-							"<div class=\"container\">\r\n" + 
-							"<div class=\"row\">";
+							"	<div class=\"container\">\r\n" + 
+							"		<div class=\"row\">";
 				}
-				
-
-				
 				i++;
 				saida += "<div class=\"col-3 col-lg-3\">\r\n" + 
 						"	<div class=\"card\" style=\"width: 100%;height: 100%;margin: auto;\">\r\n" + 
@@ -237,7 +234,7 @@ public class Passagem {
 	}
 	
 	
-	public String idPassagem() {
+	/*public String idPassagem() {
 		ResultSet rs = this.dbQuery.selectID("idPassagem=(select max(idPassagem) from passagens)");
 		String id = "";
 		try {
@@ -248,7 +245,7 @@ public class Passagem {
 			e.printStackTrace();
 		}
 		return (id);
-	}
+	}*/
 	
 	public String passagemDisponivel() {
 		ResultSet rs = this.dbQuery.selectPassagem("");
@@ -266,7 +263,69 @@ public class Passagem {
 	}
 	
 	
+	public String selectPassagem() {
+		ResultSet rs = this.dbQuery.selectPassagem("");
+		String saida = "";
 
+		try {
+			while(rs.next()) {
+				saida += "<div class=\"col-md-3 mt-3\">\r\n" + 
+						"		<div class=\"card\">\r\n" + 
+						"		  <div class=\"card-body\">\r\n" + 
+						"<div class=\"col text-center\">" +
+						"<img src=\"img/globo.png\" class=\"bloco\" >" +
+						"</h5>" +
+						"</div>" + 
+						"<div class=\"row mt-1\">\r\n" + 
+						"	<div class=\"col-md-12\">" +
+						"		    <h6 class=\"card-text\">Nome do lugar: "+rs.getString("nome")+ "</h6>\r\n" + 
+						"	</div>" +
+						"</div>" +
+						"<div class=\"row mt-1\">\r\n" + 
+						"	<div class=\"col-md-12\">" +
+						"		    <h6 class=\"card-text\">Promoção (destaque index): "+(rs.getInt("promocao")==0?"Não":"Sim")+ "</h6>\r\n" + 
+						"	</div>" +
+						"</div>" +
+						"<div class=\"row justify-content-center mt-2 \">" +
+						"<div class=\"col-3 text-center\">\r\n" + 
+						"<a href="+"excluirpassagem.jsp?idpassagem="+rs.getInt("id")+">" +
+						"<button type=\"button\" class=\"btn btn-primary excluirpassagem\" data-toggle=\"modal\" data-target=\"#myModal\">\r\n" + 
+						"Excluir" +
+						"</button>\r\n"+
+						"</a>" +
+						"		</div></div>  </div>\r\n" + 
+						"		</div>\r\n" + 
+						"</div>";
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		saida += "</div>";
+		return(saida);
+	}
+	
+
+	public void deletePassagem() {
+		ResultSet rs = this.dbQuery.quantidadePassagem("passagem.idPassagem="+this.getIdPassagem());
+		int qntd = 0;
+		try {
+			while(rs.next()) {
+				qntd = rs.getInt("qntd");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if(qntd >= 1) {
+			this.dbQuery.deleteLinha("idPassagem="+ "" + this.getIdPassagem());
+			this.dbQuery.deletePassagem("idPassagem=" + "" + this.getIdPassagem());
+		}else {
+			this.dbQuery.deletePassagem("idPassagem=" + "" + this.getIdPassagem());
+		}
+
+	}
+	
 	public int getIdPassagem() {
 		return idPassagem;
 	}

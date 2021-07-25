@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.mysql.cj.xdevapi.Result;
+
 public class DBQuery {
 	
 	private Statement statement =  null;
@@ -86,6 +88,22 @@ public class DBQuery {
 		return this.query(sql);
 	} 
 	
+	public ResultSet selectCompra(String where) {
+		String sql = "SELECT "+  this.joinElements(this.fieldsName, ", ") + " FROM " + this.tableName;
+		sql += (( where!="") ? " WHERE "+ where : "" );
+		System.out.print(sql);
+		return this.query(sql);
+	} 
+	
+	public ResultSet selectCompraUsuario(String where) {
+		String sql = "SELECT count(*) as qntd FROM " + this.tableName;
+		sql += " inner join compra on "+this.tableName+".idUsuario = compra.idUsuario ";
+		sql += (( where!="") ? " WHERE "+ where : "" );
+		System.out.print(sql);
+		return this.query(sql);
+	} 
+	
+	
 	public ResultSet selectLocalizacao(String where) {
 		String sql = "select li.idPassagem, pa.idPassagem as id, lo.nome as nome from linha_aerea li ";
 		sql += "inner join passagem pa on li.idPassagem = pa.idPassagem ";
@@ -101,6 +119,7 @@ public class DBQuery {
 		System.out.print(sql);
 		return this.query(sql);
 	}
+	
 	
 	
 	public ResultSet destino(String where) {
@@ -157,8 +176,16 @@ public class DBQuery {
 	}
 	
 	public ResultSet selectPassagem(String where) {
-		String sql = "SELECT idPassagem, nome FROM " + this.tableName;
+		String sql = "SELECT idPassagem, nome, promocao, idPassagem as id FROM " + this.tableName;
 		sql += " inner join localizacao on localizacao.idLocalizacao="+this.tableName+".idLocalizacao";
+		sql += (( where!="") ? " WHERE "+ where : "" );
+		System.out.print(sql);
+		return this.query(sql);
+	}
+	
+	public ResultSet quantidadePassagem(String where) {
+		String sql = "SELECT COUNT(*) as qntd FROM " + this.tableName;
+		sql += " inner join linha_aerea on linha_aerea.idPassagem="+this.tableName+".idPassagem";
 		sql += (( where!="") ? " WHERE "+ where : "" );
 		System.out.print(sql);
 		return this.query(sql);
@@ -168,6 +195,14 @@ public class DBQuery {
 		String sql = "SELECT la.nomeEmpresa, la.preco as preco, pa.promocao, lo.nome, la.idPassagem as passagem, lo.URL FROM linha_aerea la ";
 		sql += "inner join passagem pa on la.idPassagem = pa.idPassagem ";
 		sql += " inner join localizacao lo on lo.idLocalizacao = pa.idLocalizacao ";
+		sql += (( where!="") ? " WHERE "+ where : "" );
+		System.out.print(sql);
+		return this.query(sql);
+	}
+	
+	public ResultSet selectLocalizacaoPassagem(String where) {
+		String sql = "select COUNT(*) as qntd from " + this.tableName;
+		sql += " inner join passagem on passagem.idLocalizacao ="+this.tableName+".idLocalizacao";
 		sql += (( where!="") ? " WHERE "+ where : "" );
 		System.out.print(sql);
 		return this.query(sql);
@@ -188,6 +223,13 @@ public class DBQuery {
 		return( this.execute(sql) );
 	}
 	
+	public int deleteLocalizacao(String where) {
+		String sql = "DELETE FROM " + this.tableName;
+		sql += (( where!="") ? " WHERE "+ where : "" );
+		System.out.print(sql);
+		return( this.execute(sql) );
+	}
+	
 	public int deleteCompra(String where) {
 		String sql = "DELETE FROM compra ";
 		sql += (( where!="") ? " WHERE "+ where : "" );
@@ -197,6 +239,13 @@ public class DBQuery {
 	
 	public int deleteUsuario(String where) {
 		String sql = "DELETE FROM " + this.tableName;
+		sql += (( where!="") ? " WHERE " + this.fieldKey +"= " + where : "" );
+		System.out.print(sql);
+		return( this.execute(sql) );
+	}
+	
+	public int deleteCompraUsuario(String where) {
+		String sql = "DELETE FROM compra";
 		sql += (( where!="") ? " WHERE " + this.fieldKey +"= " + where : "" );
 		System.out.print(sql);
 		return( this.execute(sql) );

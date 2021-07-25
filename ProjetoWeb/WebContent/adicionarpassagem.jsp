@@ -5,6 +5,7 @@
 	<%
 		String nivelusuario = (String) session.getAttribute("nivelusuario");
 		int converte = new Usuario().convert(nivelusuario);
+		String passagem = new Passagem().selectPassagem();
 		String localizacao = new Localizacao().localizacoesNotKey();
 		if(converte == 2){
 	%>
@@ -126,7 +127,18 @@
 	</div>
 	
 	
-	
+		<div class="row justify-content-center mt-2">
+			<div class="col-6 col-lg-5 text-center h3">
+				Passagens
+			</div>
+		</div>
+		
+		
+		<div class="row">
+			<%	
+				out.print(passagem);
+			%>
+		</div>
 	
 	</div>
 		

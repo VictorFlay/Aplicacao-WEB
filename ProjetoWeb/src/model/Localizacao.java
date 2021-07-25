@@ -6,13 +6,13 @@ import java.sql.SQLException;
 import database.DBQuery;
 
 public class Localizacao {
+	private int idlocalizacao;
 	private String nome;
 	private String url;
 	
 	private String tableName = "";
 	private String fieldsName = "";
 	private String keyField = "";
-	private String where = "";
 	private DBQuery dbQuery = null;
 	
 	
@@ -92,8 +92,6 @@ public class Localizacao {
 		return false;
 	}
 
-	
-	
 	public String idPassagem() {
 		ResultSet rs = this.dbQuery.selectID("NOT EXISTS (SELECT passagem.idLocalizacao FROM passagem WHERE localizacao.idLocalizacao = passagem.idLocalizacao)");
 		String nome = "<br>";
@@ -109,8 +107,64 @@ public class Localizacao {
 		return (nome);
 	}
 	
+	public String lugares() {
+		ResultSet rs = this.dbQuery.select("");
+		String saida = "";
+		
+		try {
+			while(rs.next()) {
+				saida += "<div class=\"col-md-3 mt-3\">"+
+						"<div class=\"card\">\r\n" + 
+						"  <img class=\"card-img-top\" src="+rs.getString("url")+" alt=\"Card image cap\">\r\n" + 
+						"  <div class=\"card-body\">\r\n" + 
+						"    <h5 class=\"card-title\">"+rs.getString("nome")+"</h5>\r\n" +  
+						"		<a href="+"excluirlocalizacao.jsp?idlocalizacao="+rs.getInt("idLocalizacao")+">" +
+						"			<button type=\"button\" class=\"btn btn-primary excluirlocalizacao\" data-toggle=\"modal\" data-target=\"#myModal\">\r\n" + 
+						"				Excluir" +
+						"			</button>\r\n"+
+						"		</a>" +
+						"  </div>\r\n" + 
+						"</div></div>";
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return(saida);
+	}
 	
 
+	public void deleteLocalizacao() {
+		ResultSet rs = this.dbQuery.selectLocalizacaoPassagem("localizacao.idLocalizacao="+""+this.getIdlocalizacao());
+		int qntd = 0;
+		
+		try {
+			while(rs.next()) {
+				qntd = rs.getInt("qntd");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		if(qntd > 0) {
+			this.dbQuery.deletePassagem("idLocalizacao=" + "" + this.getIdlocalizacao());
+			this.dbQuery.deleteLocalizacao("idLocalizacao=" + "" + this.getIdlocalizacao());
+		}else {
+			this.dbQuery.deleteLocalizacao("idLocalizacao=" + "" + this.getIdlocalizacao());
+		}
+		
+	}
+	
+	
+	public int getIdlocalizacao() {
+		return idlocalizacao;
+	}
+
+	public void setIdlocalizacao(int idlocalizacao) {
+		this.idlocalizacao = idlocalizacao;
+	}
 
 	public String getUrl() {
 		return url;

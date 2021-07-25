@@ -14,12 +14,21 @@ public class Compra {
 	private float preco;
 	private int classe;
 	
+	Locale ptBr = new Locale("pt", "BR");
 	
 	private String tableName = "";
 	private String fieldsName = "";
 	private String keyField = "";
 	private DBQuery dbQuery = null;
 	
+	
+	public Compra() {
+		this.tableName = "compra";
+		this.fieldsName = "idUsuario, nomeDestino, nomeLinha, preco, classe";
+		this.keyField = "notaFiscal";
+		this.dbQuery = new DBQuery(this.tableName, this.fieldsName, this.keyField);
+
+	}
 	
 	
 	public Compra(String idusuario, String nomedestino, String nomelinha, String preco, String classe) {
@@ -57,7 +66,58 @@ public class Compra {
 	}
 
 
+	public String compras(String idusuario) {
 
+		
+		ResultSet rs = this.dbQuery.selectCompra("idUsuario="+idusuario);
+		String saida = "";
+		try {
+			while(rs.next()) {
+				saida += "       <div class=\"row justify-content-center mt-2\">\r\n" + 
+						"        	<div class=\"col-md-8 mt-1\">\r\n" + 
+						"            <div class=\"card\">\r\n" + 
+						"			  <div class=\"card-body\">\r\n" + 
+						"<div class=\"col text-center\">" +
+						"<img src=\"img/compra.png\" class=\"perfil\" >" +
+						"</h5>" +
+						"</div>" + 
+						"			    <h5 class=\"card-title\">\r\n" + 
+						"					  <div class=\"row justify-content-between\">\r\n" + 
+						"						<div class=\"col-4\">\r\n" + 
+						"						  Origem: GRU - Aeroporto\r\n" + 
+						"						</div>\r\n" + 
+						"						<div class=\"col-4\">\r\n" + 
+						"						  Destino: "+ rs.getString("nomeDestino")+"\r\n" + 
+						"						</div>\r\n" + 
+						"					  </div>\r\n" + 
+						"				</h5>\r\n" + 
+						"				<p class=\"card-text\">\r\n" + 
+						"					<h6>\r\n" + 
+						"	  					<div class=\"row justify-content-center\">\r\n" + 
+						"							<div class=\"col-5\">\r\n" + 
+						"		  						Nome da companhia aérea: " + rs.getString("nomeLinha") +
+						"							</div>\r\n" + 
+						"							<div class=\"col-4\">\r\n" + 
+						"		  						Classe: " + (rs.getInt("classe") == 1?"Classe Econômica" : "Classe Executiva") + 
+						"							</div>\r\n" + 
+						"							<div class=\"col-3\">\r\n" + 
+						"								Preço: " + NumberFormat.getCurrencyInstance(ptBr).format(rs.getFloat("preco")) +
+						"							</div>\r\n" + 
+						"	  					</div>\r\n" + 
+						"  				</h6>\r\n" + 
+						"				</p>" +
+						"</div></div></div></div>";
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return(saida);
+	}
+	
+	
 
 	public int getIdusuario() {
 		return idusuario;

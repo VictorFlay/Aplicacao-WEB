@@ -1,8 +1,10 @@
+<%@page import="model.Localizacao"%>
 <%@page import="model.Usuario"%>
 <%@page import="model.Passagem" %>
 <%@page import="model.LinhaAerea" %>
 	<%
 		String nivelusuario = (String) session.getAttribute("nivelusuario");
+		String localizacao = new Localizacao().lugares();
 		int converte = new Usuario().convert(nivelusuario);
 		if(converte == 2){
 	%>
@@ -113,6 +115,18 @@
 			</div>
 		
 		</div>
+	</div>
+	
+	<div class="row justify-content-center mt-2">
+		<div class="col-6 col-lg-5 text-center h3">
+				Lugares
+		</div>
+	</div>
+	
+	<div class="row">
+		<%	
+				out.print(localizacao);
+		%>
 	</div>
 	
 	

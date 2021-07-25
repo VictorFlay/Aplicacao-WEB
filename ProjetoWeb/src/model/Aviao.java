@@ -10,16 +10,10 @@ public class Aviao {
 	private String nome;
 	private float preco;
 
-	
-	
-	
-	
 	private String tableName = "";
 	private String fieldsName = "";
 	private String keyField = "";
-	private String where = "";
 	private DBQuery dbQuery = null;
-	
 	
 	public Aviao() {
 		this.tableName = "aviao";

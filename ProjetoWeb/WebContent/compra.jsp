@@ -14,7 +14,7 @@
 	String classe = request.getParameter("classe");
 		
 	Compra compra = new Compra(idusuario, destino, nomelinha, preco, classe);
-	response.sendRedirect("passagens.jsp?idpassagem="+idpassagem);
+	response.sendRedirect("passagens.jsp");
 	compra.save();
 	}else{
 		response.sendRedirect("index.jsp");

@@ -40,7 +40,7 @@
 		</div>
         
         <div class="row mt-2 ml-2">
-			<div class="col-8 col-lg-9 justify-content-between ">
+			<div class="col-8 col-lg-10 justify-content-between ">
 	             <a href="index.jsp">
 			    	<button type="button" class="btn btn-primary">Voltar</button>
 			    </a>
@@ -75,7 +75,7 @@
 	
 		<div class="row justify-content-center mt-4">
 			<div class="col-6 col-lg-3 text-center h2">
-				Menu Usuários
+				Menu Usuário
 			</div>
 		</div>
 	

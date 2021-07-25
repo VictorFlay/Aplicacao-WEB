@@ -1,6 +1,11 @@
+<%@page import="model.Compra"%>
 <%@page import="model.Usuario"%>
 <%
 	String nivelusuario = (String) session.getAttribute("nivelusuario");
+	String nome = (String) session.getAttribute("nome");
+	String idusuario = (String) session.getAttribute("idusuario");
+	String historico = new Compra().compras(idusuario);
+
 	int converte = new Usuario().convert(nivelusuario);
 	if(converte == 1){
 %>
@@ -44,9 +49,35 @@
 			    	<button type="button" class="btn btn-primary">Menu Principal</button>
 			    </a>
 			 </div>  
-			 
-			 
 		</div>
+		
+		<div class="row justify-content-center mt-1">
+			<div class="col-3 col-lg-3 text-center h1">
+				Histórico
+			</div>
+		</div>
+		
+		<div class="row justify-content-center mt-5">
+			<div class="col-3 col-lg-3 text-center h3">
+				<%
+					out.print("Olá " + nome);
+				%>
+			</div>
+		</div>
+		
+		<div class="row justify-content-center mt-1">
+			<div class="col-3 col-lg-3 text-center h3">
+				Histórico de compra
+			</div>
+		</div>
+		
+		
+		
+		<%
+			out.print(historico);
+		%>
+		
+		
 		
 	</div>
 

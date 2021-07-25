@@ -1,0 +1,158 @@
+package model;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.NumberFormat;
+import java.util.Locale;
+
+import database.DBQuery;
+
+public class Compra {
+	private int idusuario;
+	private String nomedestino;
+	private String nomelinha;
+	private float preco;
+	private int classe;
+	
+	Locale ptBr = new Locale("pt", "BR");
+	
+	private String tableName = "";
+	private String fieldsName = "";
+	private String keyField = "";
+	private DBQuery dbQuery = null;
+	
+	
+	public Compra() {
+		this.tableName = "compra";
+		this.fieldsName = "idUsuario, nomeDestino, nomeLinha, preco, classe";
+		this.keyField = "notaFiscal";
+		this.dbQuery = new DBQuery(this.tableName, this.fieldsName, this.keyField);
+
+	}
+	
+	
+	public Compra(String idusuario, String nomedestino, String nomelinha, String preco, String classe) {
+		this.tableName = "compra";
+		this.fieldsName = "idUsuario, nomeDestino, nomeLinha, preco, classe";
+		this.keyField = "notaFiscal";
+		this.dbQuery = new DBQuery(this.tableName, this.fieldsName, this.keyField);
+		
+		this.setIdusuario(Integer.parseInt(idusuario));
+		this.setNomedestino(nomedestino);
+		this.setNomelinha(nomelinha);
+		this.setPreco(Float.parseFloat(preco));
+		this.setClasse(Integer.parseInt(classe));
+		
+	}
+	
+	
+
+	public String[] toArray() {
+		return(
+			new String[] {
+				""+this.getIdusuario(),
+				""+this.getNomedestino(),
+				""+this.getNomelinha(),
+				""+this.getPreco(),
+				""+this.getClasse()
+			}
+		);
+	}
+	
+	
+	
+	public void save() {
+		this.dbQuery.insert(this.toArray());
+	}
+
+
+	public String compras(String idusuario) {
+
+		
+		ResultSet rs = this.dbQuery.selectCompra("idUsuario="+idusuario);
+		String saida = null;
+		try {
+			while(rs.next()) {
+				saida += "       <div class=\"row justify-content-center mt-2\">\r\n" + 
+						"        	<div class=\"col-lg-8 mt-1\">\r\n" + 
+						"            <div class=\"card\">\r\n" + 
+						"			  <div class=\"card-body\">\r\n" + 
+						"			    <h5 class=\"card-title\">\r\n" + 
+						"					  <div class=\"row justify-content-between\">\r\n" + 
+						"						<div class=\"col-4\">\r\n" + 
+						"						  Origem: GRU - Aeroporto\r\n" + 
+						"						</div>\r\n" + 
+						"						<div class=\"col-4\">\r\n" + 
+						"						  Destino: "+ rs.getString("nome")+"\r\n" + 
+						"						</div>\r\n" + 
+						"					  </div>\r\n" + 
+						"				</h5>\r\n" + 
+						"				<p class=\"card-text\">\r\n" + 
+						"					<h6>\r\n" + 
+						"	  					<div class=\"row justify-content-center\">\r\n" + 
+						"							<div class=\"col-5\">\r\n" + 
+						"		  						Nome da companhia aérea: " + rs.getString("empresa") +
+						"							</div>\r\n" + 
+						"							<div class=\"col-4\">\r\n" + 
+						"		  						Classe: " + (rs.getInt("classe") == 1?"Classe Econômica" : "Classe Executiva") + 
+						"							</div>\r\n" + 
+						"							<div class=\"col-3\">\r\n" + 
+						"								Preço: " + NumberFormat.getCurrencyInstance(ptBr).format(rs.getFloat("preco")) +
+						"							</div>\r\n" + 
+						"	  					</div>\r\n" + 
+						"  				</h6>\r\n" + 
+						"				</p>" +
+						"</div></div></div>";
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return(saida);
+	}
+	
+	
+
+	public int getIdusuario() {
+		return idusuario;
+	}
+
+	public void setIdusuario(int idusuario) {
+		this.idusuario = idusuario;
+	}
+
+	public String getNomedestino() {
+		return nomedestino;
+	}
+
+	public void setNomedestino(String nomedestino) {
+		this.nomedestino = nomedestino;
+	}
+
+	public String getNomelinha() {
+		return nomelinha;
+	}
+
+	public void setNomelinha(String nomelinha) {
+		this.nomelinha = nomelinha;
+	}
+
+	public float getPreco() {
+		return preco;
+	}
+
+	public void setPreco(float preco) {
+		this.preco = preco;
+	}
+
+	public int getClasse() {
+		return classe;
+	}
+
+	public void setClasse(int classe) {
+		this.classe = classe;
+	}
+	
+}

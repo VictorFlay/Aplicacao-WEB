@@ -176,7 +176,23 @@ public class Usuario {
 	}
 	
 	public void deleteUsuario() {
-		this.dbQuery.deleteUsuario("" + this.getIdUsuario());
+		ResultSet rs = this.dbQuery.selectCompraUsuario("usuario.idUsuario="+this.getIdUsuario());
+		int qntd = 0;
+		
+		try {
+			while(rs.next()) {
+				qntd = rs.getInt("qntd");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		if(qntd >= 1) {
+			this.dbQuery.deleteCompraUsuario("" + this.getIdUsuario());
+			this.dbQuery.deleteUsuario("" + this.getIdUsuario());
+		}else {
+			this.dbQuery.deleteUsuario("" + this.getIdUsuario());
+		}	
 	}
 	
 

@@ -49,6 +49,10 @@ $(document).ready(function(){
 			
 		});
 		
+		$('.excluirpassagem').click(function(){
+			alert("Passagem excluido com sucesso!");
+		});
+		
 		$('.excluirusuario').click(function(){
 			alert("Usuário excluido com sucesso!");
 		});
