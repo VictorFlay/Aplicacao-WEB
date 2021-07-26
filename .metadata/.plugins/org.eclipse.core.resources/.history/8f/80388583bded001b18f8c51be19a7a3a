@@ -1,0 +1,17 @@
+<%@page import="model.Usuario"%>
+<%
+	int idusuario = Integer.valueOf(request.getParameter("idusuario"));
+	String nivelusuario = (String) session.getAttribute("nivelusuario");
+	int converte = new Usuario().convert(nivelusuario);
+	
+	if(converte == 2){
+		Usuario usuario = new Usuario();
+		usuario.setIdUsuario(idusuario);
+		usuario.deleteUsuario();
+		response.sendRedirect("usuariomenu.jsp");
+	}
+	//Só ADM pode excluir um usuário caso ao contrário é redirecionado para o index
+	else{
+		response.sendRedirect("index.jsp");
+	}
+%>

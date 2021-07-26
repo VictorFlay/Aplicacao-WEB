@@ -1,0 +1,83 @@
+<%@page import="model.Compra"%>
+<%@page import="model.Usuario"%>
+<%
+	String idusuario = (String) session.getAttribute("idusuario");
+	String nivelusuario = (String) session.getAttribute("nivelusuario");
+	String historico = new Compra().compras(idusuario);
+	int converte = new Usuario().convert(nivelusuario);
+	if (converte == 1) {
+		String nome = (String) session.getAttribute("nome");
+%>
+<html lang="pt">
+<head>
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="css/design.css">
+
+<!-- JQUEY e AJAX -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<!-- Bootstrap CSS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+	<div class="container-fluid px-0">
+		<div class="row">
+			<div class="col-12 col-lg-12 center">
+				<img src="img/historico.jpg" class="img-fluid" id="historico">
+			</div>
+		</div>
+
+		<div class="row mt-3 ml-2">
+			<div class="col-8 col-lg-9 justify-content-between ">
+				<a href="index.jsp">
+					<button type="button" class="btn btn-primary">Menu
+						Principal</button>
+				</a>
+			</div>
+		</div>
+
+		<div class="row justify-content-center mt-1">
+			<div class="col-3 col-lg-3 text-center h1">Histórico</div>
+		</div>
+
+		<div class="row justify-content-center mt-5">
+			<div class="col-3 col-lg-3 text-center h3">
+				<%
+					out.print("Olá " + nome);
+				%>
+			</div>
+		</div>
+
+		<div class="row justify-content-center mt-1">
+			<div class="col-3 col-lg-3 text-center h3">Histórico de compra
+			</div>
+		</div>
+
+
+
+		<%
+			out.print(historico);
+		%>
+
+
+
+	</div>
+
+
+
+
+</body>
+</html>
+<%
+	} else {
+		response.sendRedirect("index.jsp");
+	}
+%>

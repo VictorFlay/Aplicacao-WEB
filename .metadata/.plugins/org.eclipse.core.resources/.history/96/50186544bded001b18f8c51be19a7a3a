@@ -1,0 +1,11 @@
+<%
+	int pag = Integer.valueOf(request.getParameter("pag"));
+	String idpassagem = request.getParameter("idpassagem");
+	session.invalidate();
+	//Após deslogar ele é redirecionado para mesma página
+	if(pag == 2){ response.sendRedirect("passagens.jsp"); }
+	
+	//Após deslogar ele é redirecionado para mesma página
+	if(pag == 1){ response.sendRedirect("index.jsp"); }
+
+%>

@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.mysql.cj.xdevapi.Result;
 
 public class DBQuery {
 	
@@ -295,7 +294,14 @@ public class DBQuery {
 		sql += "WHERE idLinhaAerea ='"+id+"'";
 		System.out.print( sql );
 		return ( this.execute(sql) );
-		
+	}
+	
+	public int updateLocalizacao(String nome, String url, int id) {
+		String sql = "\nUPDATE "+this.tableName+" SET ";
+		sql += "nome='"+nome+"', url='"+url+"'";
+		sql += "WHERE idLocalizacao ='"+id+"'";
+		System.out.print( sql );
+		return ( this.execute(sql) );
 	}
 
 	public String getTableName() {

@@ -231,7 +231,32 @@ $(document).ready(function(){
 				})
 				
 			});
-	
+		 
+		 
+		 $( '#alterarlocalizacao-form' ).submit(function(event){
+			 	event.preventDefault();
+				var data ={
+						nome: $('#cxnome').val(),
+						url : $('#cxurl').val(),
+						id: $('#cxid').val()
+				}	
+				
+				$.ajax({
+					url: "/ProjetoWeb/AlterLocalizacao",
+					type: "post",
+					dataType: "json",
+					data: data,
+					success: function(data, textStatus, jqXHR){
+						if(data.status){
+							alert(data.mensagem);
+							window.location.href = window.location.href;
+						}else{
+							alert(data.mensagem)
+						}
+					}
+				})
+				
+			});
 		 
 
 });

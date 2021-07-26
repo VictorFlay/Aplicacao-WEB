@@ -9,16 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.json.simple.JSONObject;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.mysql.cj.protocol.Resultset;
-
 import database.DBQuery;
 
 /**

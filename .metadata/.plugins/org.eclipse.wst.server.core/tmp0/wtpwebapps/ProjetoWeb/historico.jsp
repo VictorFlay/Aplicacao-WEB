@@ -1,95 +1,71 @@
 <%@page import="model.Compra"%>
 <%@page import="model.Usuario"%>
 <%
-	String nivelusuario = (String) session.getAttribute("nivelusuario");
-	String nome = (String) session.getAttribute("nome");
 	String idusuario = (String) session.getAttribute("idusuario");
+	String nivelusuario = (String) session.getAttribute("nivelusuario");
 	String historico = new Compra().compras(idusuario);
-
 	int converte = new Usuario().convert(nivelusuario);
-	if(converte == 1){
+	if (converte == 1) {
+		String nome = (String) session.getAttribute("nome");
 %>
 <html lang="pt">
 <head>
 
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="css/design.css">
 
-	
-	<%@ page contentType="text/html; charset=UTF-8" %>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- JQUEY e AJAX -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/design.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/design.css">
- 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-    <title>Hist√≥rico</title>
+<!-- Bootstrap CSS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 </head>
-
 <body>
 
-		<div class="container-fluid px-0">
+	<div class="container-fluid px-0">
+		<!-- Imagem de fundo -->
 		<div class="row">
 			<div class="col-12 col-lg-12 center">
 				<img src="img/historico.jpg" class="img-fluid" id="historico">
 			</div>
 		</div>
-		
-		        <div class="row mt-3 ml-2">
+
+		<!-- Bot„o para retornar para o menu principal -->
+		<div class="row mt-3 ml-2">
 			<div class="col-8 col-lg-9 justify-content-between ">
-	             <a href="index.jsp">
-			    	<button type="button" class="btn btn-primary">Menu Principal</button>
-			    </a>
-			 </div>  
-		</div>
-		
-		<div class="row justify-content-center mt-1">
-			<div class="col-3 col-lg-3 text-center h1">
-				Hist√≥rico
+				<a href="index.jsp">
+					<button type="button" class="btn btn-primary">Menu Principal</button>
+				</a>
 			</div>
 		</div>
-		
+
+		<div class="row justify-content-center mt-1">
+			<div class="col-3 col-lg-3 text-center h1">HistÛrico</div>
+		</div>
+	
+		<!-- InteraÁ„o com o usu·rio -->
 		<div class="row justify-content-center mt-5">
 			<div class="col-3 col-lg-3 text-center h3">
-				<%
-					out.print("Ol√° " + nome);
-				%>
+				<% out.print("Ol· " + nome); %>
 			</div>
 		</div>
-		
+
 		<div class="row justify-content-center mt-1">
 			<div class="col-3 col-lg-3 text-center h3">
-				Hist√≥rico de compra
+				HistÛrico de compra
 			</div>
 		</div>
-		
-		
-		
-		<%
-			out.print(historico);
-		%>
-		
-		
-		
+
+		<!-- Exibe o histÛrico -->
+		<% out.print(historico); %>
 	</div>
-
-
-
-
 </body>
 </html>
-<%
-	}
-else{
-	response.sendRedirect("index.jsp");
-}
 
-%>
+<!-- Apenas o ADM tem acesso a essa p·gina caso ao contr·rio È redirecionado para o index -->
+<% } else { response.sendRedirect("index.jsp"); } %>

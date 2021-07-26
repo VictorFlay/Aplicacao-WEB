@@ -3,9 +3,7 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import model.Localizacao;
 import model.Passagem;
-import model.Usuario;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

@@ -9,7 +9,9 @@
 		usuario.setIdUsuario(idusuario);
 		usuario.deleteUsuario();
 		response.sendRedirect("usuariomenu.jsp");
-	}else{
+	}
+	//Só ADM pode excluir um usuário caso contrário é redirecionado para o index
+	else{
 		response.sendRedirect("index.jsp");
 	}
 %>

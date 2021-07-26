@@ -12,9 +12,11 @@
 		usuario.alterarUsuario();
 		response.sendRedirect("usuariomenu.jsp");
 		
-	}else{
-		response.sendRedirect("index.jsp");
 	}
+	//Só o ADM pode alterar um usuário caso contrário é redirecionado ao index
+	else{
+		response.sendRedirect("index.jsp");
+		}
 
 	
 %>

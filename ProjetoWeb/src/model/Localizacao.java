@@ -79,18 +79,7 @@ public class Localizacao {
 	}
 	
 	
-	public boolean save() {
-		ResultSet rs = this.dbQuery.select("nome = '"+this.getNome()+"' or URL='"+this.getUrl()+"'");
-		try {
-			while(rs.next()) {
-				return true;
-			}
-		} catch (SQLException e) {
 
-		}
-		this.dbQuery.insert(this.toArray());
-		return false;
-	}
 
 	public String idPassagem() {
 		ResultSet rs = this.dbQuery.selectID("NOT EXISTS (SELECT passagem.idLocalizacao FROM passagem WHERE localizacao.idLocalizacao = passagem.idLocalizacao)");
@@ -132,14 +121,73 @@ public class Localizacao {
 						"</div></div>";
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		
 		return(saida);
 	}
 	
+	
+	public String selectLocalizacao() {
+		ResultSet rs = this.dbQuery.select("idLocalizacao="+this.getIdlocalizacao());
+		String saida = "";
+
+		try {
+			while(rs.next()) {
+				saida += "<div class=\"col-md-3 mt-3\">"+
+						"<div class=\"card\">\r\n" + 
+						"  <img class=\"card-img-top\" src="+rs.getString("url")+" alt=\"Card image cap\">\r\n" + 
+						"  <div class=\"card-body\">\r\n" + 
+						"    <div class=\"col text-center\"><h5>Dados Atual</h5></div>\r\n" + 
+						"    <h6 class=\"card-title\">Nome: "+rs.getString("nome")+"</h6>\r\n" +  
+						"    <h6 class=\"card-title\">URL: "+rs.getString("url")+"</h6>\r\n" +  
+						"  </div>\r\n" + 
+						"</div></div>";
+				saida += "			<div class=\"col-md-3 mt-3\">\r\n" + 
+						"				<div class=\"card\">\r\n" + 
+						"					<img class=\"card-img-top\" src=\"img/imagem.png\" alt=\"Card image cap\">\r\n" + 
+						"					<div class=\"card-body\">\r\n" + 
+						"						<div class=\"col text-center\">\r\n" + 
+						"							<h5>Alterar Para</h5>\r\n" + 
+						"						</div>\r\n" + 
+						"						<form id=\"alterarlocalizacao-form\" method=\"POST\">\r\n" + 
+						"							<h6>\r\n" + 
+						"								Nome:<input type=\"text\" class=\"form-control\" id=\"cxnome\" name=\"cxnome\" placeholder=\"Nome\">\r\n" + 
+						"								URL: <input type=\"text\" class=\"form-control\" id=\"cxurl\" name=\"cxurl\" placeholder=\"URL\">\r\n" + 
+						"								<input type=\"hidden\" id=\"cxid\" name=\"cxid\" value="+this.getIdlocalizacao()+">" +
+						"							</h6>\r\n" + 
+						"							<div class=\"col text-center\">\r\n" + 
+						"								<button type=\"submit\" class=\"btn btn-primary\">Alterar</button>\r\n" + 
+						"							</div>\r\n" + 
+						"						</form>\r\n" + 
+						"					</div>\r\n" + 
+						"				</div>\r\n" + 
+						"			</div>";
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+			return(saida);
+		}
+		
+	
+	public boolean save() {
+		ResultSet rs = this.dbQuery.select("nome = '"+this.getNome()+"' or URL='"+this.getUrl()+"'");
+		try {
+			while(rs.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+
+		}
+		this.dbQuery.insert(this.toArray());
+		return false;
+	}
+	
+	public void alterarLocalizacao() {
+		this.dbQuery.updateLocalizacao(this.getNome(), this.getUrl(), this.getIdlocalizacao());
+	}
 
 	public void deleteLocalizacao() {
 		ResultSet rs = this.dbQuery.selectLocalizacaoPassagem("localizacao.idLocalizacao="+""+this.getIdlocalizacao());

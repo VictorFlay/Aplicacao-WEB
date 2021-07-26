@@ -16,9 +16,11 @@
 	Compra compra = new Compra(idusuario, destino, nomelinha, preco, classe);
 	response.sendRedirect("passagens.jsp");
 	compra.save();
-	}else{
-		response.sendRedirect("index.jsp");
 	}
+	//Apenas o usúario é capaz de realizar uma compra caso contrário é redirecionado ao index
+	else{
+		response.sendRedirect("index.jsp");
+		}
 	
 	
 %>

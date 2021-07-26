@@ -1,0 +1,122 @@
+<%@page import="model.Localizacao"%>
+<%@page import="model.Usuario"%>
+
+<%
+	String nivelusuario = (String) session.getAttribute("nivelusuario");
+	String localizacao = new Localizacao().lugares();
+	int converte = new Usuario().convert(nivelusuario);
+	if (converte == 2) {
+%>
+<html lang="pt">
+<head>
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="css/design.css">
+
+<!-- JQUEY e AJAX -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<!-- Bootstrap CSS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<title>Localização</title>
+</head>
+<body>
+
+	<div class="container-fluid px-0">
+		<!-- Imagem de fundo -->
+		<div class="row">
+			<div class="col-12 col-lg-12 center">
+				<img src="img/menuadm.jpg" class="img-fluid" id="menuadm">
+			</div>
+		</div>
+
+		<!-- Botão para retornar para o meu principal -->
+		<div class="row mt-2 ml-2">
+			<div class="col-8 col-lg-9 justify-content-between ">
+				<a href="index.jsp">
+					<button type="button" class="btn btn-primary">Menu Principal</button>
+				</a>
+			</div>
+
+			<!-- Menu ADM -->
+			<div class="col-1 col-lg-1 mt-2 ml-2">
+				<div class="dropdown">
+					<a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+						id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> ADM </a>
+
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<a class="dropdown-item" href="adicionarlocalizacao.jsp">Localização</a> 
+						<a class="dropdown-item" href="adicionarpassagem.jsp">Passagem</a> 
+						<a class="dropdown-item" href="adicionarlinha.jsp">Companhia Aérea</a> 
+						<a class="dropdown-item" href="usuariomenu.jsp">Usuário</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row justify-content-center mt-2">
+			<div class="col-3 col-lg-3 text-center h2">Menu Administrador</div>
+		</div>
+
+		<div class="row justify-content-center mt-4">
+			<div class="col-6 col-lg-3 text-center h2">Adicionar Localização</div>
+		</div>
+
+		<div class="row justify-content-center mt-5">
+			<div class="col-6 col-lg-5 text-center h3">Formulário para adicionar o país</div>
+		</div>
+
+		<!-- Form para insert o país (AJAX) -->
+		<div class="row justify-content-center mt-2">
+			<div class="col-lg-8 mt-1">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title text-center">Dados</h4>
+						<form id="localizacao-form" method="POST">
+							<div class="form-row">
+								<div class="form-group col-md-4">
+									<label for="nome" class="h6">Nome do país e lugar:</label> <input
+										type="text" class="form-control" id="cxnome" name="cxurl"
+										placeholder="Exemplo (Brasil, São Paulo)">
+								</div>
+
+								<div class="form-group col-md-5 ml-5">
+									<label for="inputPassword4" class="h6">URL imagem:</label> <input
+										type="text" class="form-control" id="cxurl" name="cxurl"
+										placeholder="Digite a URL da imagem...">
+								</div>
+
+								<div class="form-group col-md-2 mt-4 ml-5">
+									<button type="submit" class="btn btn-primary">Inserir</button>
+								</div>
+
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row justify-content-center mt-2">
+			<div class="col-6 col-lg-5 text-center h3">Lugares</div>
+		</div>
+
+		<!-- Exibe todas as localizações do banco de dados -->
+		<div class="row">
+			<%
+				out.print(localizacao);
+			%>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+
+
+<% } else { response.sendRedirect("index.jsp"); } %>
