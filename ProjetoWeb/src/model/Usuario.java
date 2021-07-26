@@ -63,7 +63,6 @@ public class Usuario {
 		}else if(nivelusuario.equals("1")) {
 			value = 1;
 		}
-		
 		return (value);
 	}
 	
@@ -81,27 +80,6 @@ public class Usuario {
 		return false;
 	}
 	
-	public void excluir(String idpassagem, String idlinha) {
-		ResultSet rs = this.dbQuery.linhasQuantidade("p.idPassagem ='"+idpassagem+"'");
-		int qntd = 0;
-		try {
-			while(rs.next()) {
-				qntd = rs.getInt("quantidade");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		
-		if(qntd > 1) {
-			this.dbQuery.deleteCompra("compra.idPassagem='"+idpassagem+"'");
-			this.dbQuery.deleteLinha("linha_aerea.idLinhaAerea ='"+idlinha+"'");
-		}else {
-			this.dbQuery.deleteCompra("compra.idPassagem='"+idpassagem+"'");
-			this.dbQuery.deleteLinha("linha_aerea.idLinhaAerea ='"+idlinha+"'");
-			this.dbQuery.deletePassagem("passagem.idPassagem='"+idpassagem+"'");
-		}
-	}
 
 	
 	public String usuarios() {
@@ -109,61 +87,59 @@ public class Usuario {
 		String saida = "<div class=\"row\">";
 		try {
 			while(rs.next()) {
-				saida += "		<div class=\"col-md-3 mt-2\">\r\n" + 
+				saida += "	<div class=\"col-md-3 mt-2\">\r\n" + 
 						"		<div class=\"card\">\r\n" + 
 						"		  <div class=\"card-body\">\r\n" + 
-						"<div class=\"col text-center\">" +
-						"<img src=\"img/perfil.png\" class=\"perfil\" >" +
-						"</h5>" +
-						"</div>" + 
+						"		<div class=\"col text-center\">" +
+						"			<img src=\"img/perfil.png\" class=\"perfil\" >" +
+						"		</div>" + 
+						"		<div class=\"row mt-1\">\r\n" + 
+						"			<div class=\"col-md-12\">" +
+						"		    	<h6 class=\"card-text\">Nome Completo: "+rs.getString("nome")+ "</h6>\r\n" + 
+						"			</div>" +
+						"		</div>" +
 						"<div class=\"row mt-1\">\r\n" + 
 						"	<div class=\"col-md-12\">" +
-						"		    <h6 class=\"card-text\">Nome Completo: "+rs.getString("nome")+ "</h6>\r\n" + 
+						"		<h6 class=\"card-text\">Login: "+rs.getString("login")+ "</h6>\r\n" + 
+						"	</div>" +
+						"</div>" +
+						"	<div class=\"row mt-1\">\r\n" + 
+						"		<div class=\"col-md-12\">" +
+						"			<h6 class=\"card-text\">Senha: "+rs.getString("senha")+ "</h6>\r\n" + 
+						"		</div>" +
+						"	</div>" +
+						"<div class=\"row mt-1\">\r\n" + 
+						"	<div class=\"col-md-12\">" +
+						"		<h6 class=\"card-text\">Telefone: "+rs.getString("telefone")+ "</h6>\r\n" + 
 						"	</div>" +
 						"</div>" +
 						"<div class=\"row mt-1\">\r\n" + 
 						"	<div class=\"col-md-12\">" +
-						"		    <h6 class=\"card-text\">Login: "+rs.getString("login")+ "</h6>\r\n" + 
+						"		<h6 class=\"card-text\">UF: "+rs.getString("estado")+ "</h6>\r\n" + 
 						"	</div>" +
 						"</div>" +
 						"<div class=\"row mt-1\">\r\n" + 
 						"	<div class=\"col-md-12\">" +
-						"		    <h6 class=\"card-text\">Senha: "+rs.getString("senha")+ "</h6>\r\n" + 
+						"		<h6 class=\"card-text\">Nível Usuário: "+ (rs.getInt("nivelusuario")==1?"Usuário comum":"Administrador") + "</h6>\r\n" + 
 						"	</div>" +
 						"</div>" +
-						"<div class=\"row mt-1\">\r\n" + 
-						"	<div class=\"col-md-12\">" +
-						"		    <h6 class=\"card-text\">Telefone: "+rs.getString("telefone")+ "</h6>\r\n" + 
-						"	</div>" +
-						"</div>" +
-						"<div class=\"row mt-1\">\r\n" + 
-						"	<div class=\"col-md-12\">" +
-						"		    <h6 class=\"card-text\">UF: "+rs.getString("estado")+ "</h6>\r\n" + 
-						"	</div>" +
-						"</div>" +
-						"<div class=\"row mt-1\">\r\n" + 
-						"	<div class=\"col-md-12\">" +
-						"		    <h6 class=\"card-text\">Nível Usuário: "+ (rs.getInt("nivelusuario")==1?"Usuário comum":"Administrador") + "</h6>\r\n" + 
-						"	</div>" +
-						"</div>" +
-						"  <div class=\"row justify-content-end mt-2\">\r\n" + 
-						"    <div class=\"col-4\">\r\n" + 
-						"			<a href=excluirusuario.jsp?idusuario=" + rs.getString("idUsuario") + ">" +
-						"		<button type=\"button\" class=\"btn btn-primary excluirusuario\">Excluir</button>\r\n" + 
-						"</a>" +
+						"<div class=\"row justify-content-end mt-2\">\r\n" + 
+						"   <div class=\"col-4\">\r\n" + 
+						"		<a href=excluirusuario.jsp?idusuario=" + rs.getString("idUsuario") + ">" +
+						"			<button type=\"button\" class=\"btn btn-primary excluirusuario\">Excluir</button>\r\n" + 
+						"		</a>" +
 						"    </div>\r\n" + 
-						"    <div class=\"col-4\">\r\n" + 
-						"			<a href=alterarusuario.jsp?idusuario=" + rs.getString("idUsuario") + "&nivelusuario=" + rs.getString("nivelusuario") + ">" +
+						"<div class=\"col-4\">\r\n" + 
+						"	<a href=alterarusuario.jsp?idusuario=" + rs.getString("idUsuario") + "&nivelusuario=" + rs.getString("nivelusuario") + ">" +
 						"		<button type=\"button\" class=\"btn btn-primary alterarusuario\">Nível</button>\r\n" + 
-						"</a>" +
-						"    </div>\r\n" + 
-						"  </div>" +
-						"		  </div>\r\n" + 
-						"		</div>\r\n" + 
-						"		</div>";
+						"	</a>" +
+						"</div>\r\n" + 
+						"</div>" +
+						"</div>\r\n" + 
+						"</div>\r\n" + 
+						"</div>";
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

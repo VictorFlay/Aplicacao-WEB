@@ -63,8 +63,6 @@ public class InsertLocalizacao extends HttpServlet {
 				mensagem = gson.toJson(jo);
 				out.print(mensagem);
 			}
-			
-			
 		}
 	}
 

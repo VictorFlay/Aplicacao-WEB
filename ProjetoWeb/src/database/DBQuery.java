@@ -113,7 +113,7 @@ public class DBQuery {
 	}
 	
 	public ResultSet selectLocalizacaoNotKey(String where) {
-		String sql = "SELECT l.nome as nome, l.idLocalizacao as id FROM localizacao l ";
+		String sql = "SELECT localizacao.nome as nome, localizacao.idLocalizacao as id FROM "+ this.tableName;
 		sql += (( where!="") ? " WHERE "+ where : "" );
 		System.out.print(sql);
 		return this.query(sql);
@@ -122,7 +122,7 @@ public class DBQuery {
 	
 	
 	public ResultSet destino(String where) {
-		String sql = "select localizacao.nome as nome from passagem ";
+		String sql = "select localizacao.nome as nome from " + this.tableName;
 		sql += " inner join localizacao on passagem.idLocalizacao = localizacao.idLocalizacao ";
 		sql += (( where!="") ? " WHERE "+ where : "" );
 		System.out.print(sql);
@@ -191,7 +191,7 @@ public class DBQuery {
 	}
 	
 	public ResultSet selectPromocao(String where) {
-		String sql = "SELECT la.nomeEmpresa, la.preco as preco, pa.promocao, lo.nome, la.idPassagem as passagem, lo.URL FROM linha_aerea la ";
+		String sql = "SELECT la.nomeEmpresa, min(la.preco) as preco, pa.promocao, lo.nome, la.idPassagem as passagem, lo.URL FROM linha_aerea la ";
 		sql += "inner join passagem pa on la.idPassagem = pa.idPassagem ";
 		sql += " inner join localizacao lo on lo.idLocalizacao = pa.idLocalizacao ";
 		sql += (( where!="") ? " WHERE "+ where : "" );
@@ -208,7 +208,7 @@ public class DBQuery {
 	}
 	
 	public int deleteLinha(String where) {
-		String sql = "DELETE FROM linha_aerea ";
+		String sql = "DELETE FROM "+this.tableName;
 		sql += (( where!="") ? " WHERE "+ where : "" );
 		System.out.print(sql);
 		return( this.execute(sql) );

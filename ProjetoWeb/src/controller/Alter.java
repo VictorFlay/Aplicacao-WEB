@@ -27,10 +27,7 @@ public class Alter extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-
 	
-	
-
 	@SuppressWarnings("unchecked")
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,10 +40,7 @@ public class Alter extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String classe = request.getParameter("classe");
 		String preco = request.getParameter("preco");
-		String id = request.getParameter("id");
-		
-		
-		
+		String id = request.getParameter("id");	
 		
 		if(nome.equals("") || classe.equals("") || preco.equals("") || id.equals("")) {
 			jo.put("status", false);
@@ -60,8 +54,6 @@ public class Alter extends HttpServlet {
 			mensagem = gson.toJson(jo);
 			out.print(mensagem);
 		}
-
-
 	}
 
 }

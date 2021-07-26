@@ -1,9 +1,0 @@
-<%@page import="model.Compra"%>
-<%
-	String nivelusuario = (String) session.getAttribute("nivelusuario");
-
-	
-
-	
-		
-%>

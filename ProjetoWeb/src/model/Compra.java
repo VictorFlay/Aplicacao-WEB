@@ -59,35 +59,25 @@ public class Compra {
 		);
 	}
 	
-	
-	
-	public void save() {
-		this.dbQuery.insert(this.toArray());
-	}
-
-
 	public String compras(String idusuario) {
-
-		
 		ResultSet rs = this.dbQuery.selectCompra("idUsuario="+idusuario);
 		String saida = "";
 		try {
 			while(rs.next()) {
-				saida += "       <div class=\"row justify-content-center mt-2\">\r\n" + 
-						"        	<div class=\"col-md-8 mt-1\">\r\n" + 
-						"            <div class=\"card\">\r\n" + 
-						"			  <div class=\"card-body\">\r\n" + 
-						"<div class=\"col text-center\">" +
-						"<img src=\"img/compra.png\" class=\"perfil\" >" +
-						"</h5>" +
-						"</div>" + 
+				saida += "<div class=\"row justify-content-center mt-2\">" + 
+						"	<div class=\"col-md-8 mt-1\">\r\n" + 
+						"		<div class=\"card\">\r\n" + 
+						"			<div class=\"card-body\">\r\n" + 
+						"				<div class=\"col text-center\">" +
+						"					<img src=\"img/compra.png\" class=\"perfil\" >" +
+						"				</div>" + 
 						"			    <h5 class=\"card-title\">\r\n" + 
-						"					  <div class=\"row justify-content-between\">\r\n" + 
+						"					<div class=\"row justify-content-between\">\r\n" + 
 						"						<div class=\"col-4\">\r\n" + 
-						"						  Origem: GRU - Aeroporto\r\n" + 
+						"							Origem: GRU - Aeroporto\r\n" + 
 						"						</div>\r\n" + 
 						"						<div class=\"col-4\">\r\n" + 
-						"						  Destino: "+ rs.getString("nomeDestino")+"\r\n" + 
+						"						  	Destino: "+ rs.getString("nomeDestino")+"\r\n" + 
 						"						</div>\r\n" + 
 						"					  </div>\r\n" + 
 						"				</h5>\r\n" + 
@@ -109,12 +99,13 @@ public class Compra {
 						"</div></div></div></div>";
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 		return(saida);
+	}
+	
+	public void save() {
+		this.dbQuery.insert(this.toArray());
 	}
 	
 	

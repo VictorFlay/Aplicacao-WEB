@@ -1,3 +1,4 @@
+<%@page import="model.LinhaAerea"%>
 <%@page import="model.Usuario"%>
 <%@page import="model.Compra"%>
 <%
@@ -10,7 +11,7 @@
 	
 	
 	if((idusuario != null && idpassagem != null && idlinha != null && classe != null) && converte == 2){
-		new Usuario().excluir(idpassagem, idlinha);
+		new LinhaAerea().excluir(idlinha);
 		response.sendRedirect("passagens.jsp?id="+idpassagem+"&classe="+classe);
 	}
 	//Só ADM pode excluir um usuário caso contrário é redirecionado para passagens

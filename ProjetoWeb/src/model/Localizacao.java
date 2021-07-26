@@ -32,12 +32,7 @@ public class Localizacao {
 		this.setNome(nome);
 		this.setUrl(url);
 	}
-	
-
-	
-	
-
-	
+		
 	public String[] toArray() {
 		return(
 			new String[] {
@@ -64,7 +59,7 @@ public class Localizacao {
 	}
 	
 	public String localizacoesNotKey() {
-		ResultSet rs = this.dbQuery.selectLocalizacaoNotKey("NOT EXISTS (SELECT pa.idLocalizacao FROM passagem pa WHERE l.idLocalizacao = pa.idLocalizacao)");
+		ResultSet rs = this.dbQuery.selectLocalizacaoNotKey("NOT EXISTS (SELECT pa.idLocalizacao FROM passagem pa WHERE localizacao.idLocalizacao = pa.idLocalizacao)");
 		String saida = "<select id=\"cxlocalizacao\" name=\"cxlocalizacao\" class=\"form-control\">";
 		try {
 			while(rs.next()) {
@@ -78,24 +73,6 @@ public class Localizacao {
 		return(saida);
 	}
 	
-	
-
-
-	public String idPassagem() {
-		ResultSet rs = this.dbQuery.selectID("NOT EXISTS (SELECT passagem.idLocalizacao FROM passagem WHERE localizacao.idLocalizacao = passagem.idLocalizacao)");
-		String nome = "<br>";
-		try {
-			while(rs.next()) {
-				nome += "<img src='" + rs.getString("URL") + "'>";
-				nome += rs.getString("nome");
-				
-			}
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return (nome);
-	}
-	
 	public String lugares() {
 		ResultSet rs = this.dbQuery.select("");
 		String saida = "";
@@ -103,9 +80,9 @@ public class Localizacao {
 		try {
 			while(rs.next()) {
 				saida += "<div class=\"col-md-3 mt-3\">"+
-						"<div class=\"card\">\r\n" + 
-						"  <img class=\"card-img-top\" src="+rs.getString("url")+" alt=\"Card image cap\">\r\n" + 
-						"  <div class=\"card-body\">\r\n" + 
+						"	<div class=\"card\">\r\n" + 
+						"  		<img class=\"card-img-top\" src="+rs.getString("url")+" alt=\"Card image cap\">\r\n" + 
+						"  	<div class=\"card-body\">\r\n" + 
 						"    <h5 class=\"card-title\">"+rs.getString("nome")+"</h5>\r\n" +  
 						"		<a href="+"excluirlocalizacao.jsp?idlocalizacao="+rs.getInt("idLocalizacao")+">" +
 						"			<button type=\"button\" class=\"btn btn-primary excluirlocalizacao\" data-toggle=\"modal\" data-target=\"#myModal\">\r\n" + 
@@ -123,7 +100,6 @@ public class Localizacao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return(saida);
 	}
 	
@@ -135,13 +111,13 @@ public class Localizacao {
 		try {
 			while(rs.next()) {
 				saida += "<div class=\"col-md-3 mt-3\">"+
-						"<div class=\"card\">\r\n" + 
-						"  <img class=\"card-img-top\" src="+rs.getString("url")+" alt=\"Card image cap\">\r\n" + 
-						"  <div class=\"card-body\">\r\n" + 
-						"    <div class=\"col text-center\"><h5>Dados Atual</h5></div>\r\n" + 
-						"    <h6 class=\"card-title\">Nome: "+rs.getString("nome")+"</h6>\r\n" +  
-						"    <h6 class=\"card-title\">URL: "+rs.getString("url")+"</h6>\r\n" +  
-						"  </div>\r\n" + 
+						"	<div class=\"card\">\r\n" + 
+						"  		<img class=\"card-img-top\" src="+rs.getString("url")+" alt=\"Card image cap\">\r\n" + 
+						"  		<div class=\"card-body\">\r\n" + 
+						"    	<div class=\"col text-center\"><h5>Dados Atual</h5></div>\r\n" + 
+						"    	<h6 class=\"card-title\">Nome: "+rs.getString("nome")+"</h6>\r\n" +  
+						"    	<h6 class=\"card-title\">URL: "+rs.getString("url")+"</h6>\r\n" +  
+						"  	</div>\r\n" + 
 						"</div></div>";
 				saida += "			<div class=\"col-md-3 mt-3\">\r\n" + 
 						"				<div class=\"card\">\r\n" + 
@@ -167,7 +143,6 @@ public class Localizacao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 			return(saida);
 		}
 		
@@ -209,7 +184,6 @@ public class Localizacao {
 		}
 		
 	}
-	
 	
 	public int getIdlocalizacao() {
 		return idlocalizacao;

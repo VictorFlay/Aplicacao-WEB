@@ -46,8 +46,6 @@ public class InsertLinha extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String preco = request.getParameter("preco");
 		String classe = request.getParameter("classe");
-		
-	
 	
 		if(idpassagem.equals("") || nome.equals("") || preco.equals("") || classe.equals("")) {
 			jo.put("status", false);

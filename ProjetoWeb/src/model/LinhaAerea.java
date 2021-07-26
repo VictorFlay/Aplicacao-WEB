@@ -71,17 +71,13 @@ public class LinhaAerea {
 		}else {
 			saida += elem + " elemento";
 		}
-		
-		
 		return(saida);
 	}
 	
 
-	
-	
 	public String dadosLinha(String idpassagem, int nivelusuario, String idusuario) {
 		ResultSet rs = this.dbQuery.dadosLinha("p.idPassagem ='"+idpassagem+"'");
-		String saida = "<div class=\"teste\">";
+		String saida = "";
 		try {
 			while(rs.next()) {
 				
@@ -117,59 +113,55 @@ public class LinhaAerea {
 						
 						if(nivelusuario == 0) {
 							saida += "<div class=\"row justify-content-center\">" +
-									"<div class=\"col-2\">";
-							saida += "<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#buscanivel\">\r\n" + 
-									"  Comprar\n" + 
-									"</button>\r\n" + 
-									"\r\n" + 
-									"<!-- Modal -->\r\n" + 
-									"<div class=\"modal fade\" id=\"buscanivel\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"buscanivel\" aria-hidden=\"true\">\r\n" + 
-									"  <div class=\"modal-dialog\" role=\"document\">\r\n" + 
-									"    <div class=\"modal-content\">\r\n" + 
-									"      <div class=\"modal-header\">\r\n" + 
-									"        <h5 class=\"modal-title\" id=\"buscanivel\">Erro</h5>\r\n" + 
-									"        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n" + 
-									"          <span aria-hidden=\"true\">&times;</span>\r\n" + 
-									"        </button>\r\n" + 
-									"      </div>\r\n" + 
-									"      <div class=\"modal-body\">\r\n" + 
-									"       Você precisa está logado para efetuar uma compra\r\n" + 
-									"      </div>\r\n" + 
-									"      <div class=\"modal-footer\">\r\n" + 
-									"        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Fechar</button>\r\n" + 
-									"      </div>\r\n" + 
-									"    </div>\r\n" + 
-									"  </div>\r\n" + 
+									"	<div class=\"col-2\">";
+							saida += "		<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#buscanivel\">" + 
+									" 			 Comprar\n" + 
+									"		</button>\r\n" + 
+									"		<div class=\"modal fade\" id=\"buscanivel\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"buscanivel\" aria-hidden=\"true\">\r\n" + 
+									"  			<div class=\"modal-dialog\" role=\"document\">\r\n" + 
+									"    			<div class=\"modal-content\">\r\n" + 
+									"      				<div class=\"modal-header\">\r\n" + 
+									"        				<h5 class=\"modal-title\" id=\"buscanivel\">Erro</h5>\r\n" + 
+									"        				<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n" + 
+									"          					<span aria-hidden=\"true\">&times;</span>\r\n" + 
+									"        				</button>\r\n" + 
+									"     				</div>\r\n" + 
+									"      			<div class=\"modal-body\">\r\n" + 
+									"       			Você precisa está logado para efetuar uma compra\r\n" + 
+									"      			</div>\r\n" + 
+									"      			<div class=\"modal-footer\">\r\n" + 
+									"        			<button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Fechar</button>\r\n" + 
+									"      			</div>\r\n" + 
+									"    		</div>\r\n" + 
+									"  	</div>\r\n" + 
 									"</div>";
 							saida += "</div></div></div>";
 	
 						}
 						else if(nivelusuario == 1){
 						saida += "<div class=\"row justify-content-center\">" +
-								"<div class=\"col-2\">\r\n" + 
-								"<a href="+"compra.jsp?idusuario="+idusuario+"&idpassagem="+rs.getString("id")+"&nomelinha="+rs.getString("empresa")+"&preco="+rs.getFloat("preco")+"&classe="+rs.getInt("classe")+">" +
-								"<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" id=\"comprarsucess\" data-target=\"#myModal\">\r\n" + 
-								"Comprar" +
-								"<input type=\"hidden\" id=\"teste\" value="+rs.getString("empresa")+">" +
-								"</button>\r\n"+
-								"</a>" +
+								"	<div class=\"col-2\">\r\n" + 
+								"		<a href="+"compra.jsp?idusuario="+idusuario+"&idpassagem="+rs.getString("id")+"&nomelinha="+rs.getString("empresa")+"&preco="+rs.getFloat("preco")+"&classe="+rs.getInt("classe")+">" +
+								"			<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" id=\"comprarsucess\" data-target=\"#myModal\">\r\n" + 
+								"				Comprar" +
+								"			</button>\r\n"+
+								"		</a>" +
 								"</div></div></div>";
 						}else {
 							saida += "<div class=\"row justify-content-end\">" +
-									"<div class=\"col-2\">\r\n" + 
-									"<a href="+"excluir.jsp?idusuario="+idusuario+"&idpassagem="+rs.getString("id")+"&idlinha="+rs.getString("li.idLinhaAerea")+ "&classe=" +rs.getInt("classe") +">" + 
-									"<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" id=\"excluirsucess\">" +
-									"Excluir" +
-									"<input type=\"hidden\" id=\"teste\" value="+rs.getString("empresa")+">" +
-									"</button>\r\n"+
-									"</a>" +
-									"</div>"+
-									"<div class=\"col-2\">\r\n" + 
-									"<a href="+"alterar.jsp?idusuario="+idusuario+"&idpassagem="+rs.getString("id")+"&idlinha="+rs.getString("li.idLinhaAerea")+">" +
-									"<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\">" +
-									"Alterar\r\n" + 
-									"</button>\r\n" + 
-									"</a>" + 
+									"	<div class=\"col-2\">\r\n" + 
+									"		<a href="+"excluir.jsp?idusuario="+idusuario+"&idpassagem="+rs.getString("id")+"&idlinha="+rs.getString("li.idLinhaAerea")+ "&classe=" +rs.getInt("classe") +">" + 
+									"			<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" id=\"excluirsucess\">" +
+									"				Excluir" +
+									"			</button>\r\n"+
+									"		</a>" +
+									"	</div>"+
+									"	<div class=\"col-2\">\r\n" + 
+									"		<a href="+"alterar.jsp?idusuario="+idusuario+"&idpassagem="+rs.getString("id")+"&idlinha="+rs.getString("li.idLinhaAerea")+">" +
+									"			<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\">" +
+									"				Alterar\r\n" + 
+									"			</button>\r\n" + 
+									"		</a>" + 
 									"</div></div>";
 						}
 						
@@ -186,7 +178,7 @@ public class LinhaAerea {
 	
 	public String dadosLinhabusca(String id, String classebusca, int nivelusuario, String idusuario) {
 		ResultSet rs = this.dbQuery.dadosLinha("p.idPassagem ='"+id+"' and classe ='"+classebusca+"'");
-		String saida = "<div class=\"teste\">";
+		String saida = "";
 		try {
 			while(rs.next()) {
 				
@@ -221,28 +213,26 @@ public class LinhaAerea {
 						"				</p>";
 				if(nivelusuario == 0) {
 					saida += "<div class=\"row justify-content-center\">" +
-							"<div class=\"col-2\">";
-					saida += "<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#buscanivel\">\r\n" + 
-							"  Comprar\n" + 
-							"</button>\r\n" + 
-							"\r\n" + 
-							"<!-- Modal -->\r\n" + 
-							"<div class=\"modal fade\" id=\"buscanivel\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"buscanivel\" aria-hidden=\"true\">\r\n" + 
-							"  <div class=\"modal-dialog\" role=\"document\">\r\n" + 
-							"    <div class=\"modal-content\">\r\n" + 
-							"      <div class=\"modal-header\">\r\n" + 
-							"        <h5 class=\"modal-title\" id=\"buscanivel\">Erro</h5>\r\n" + 
-							"        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n" + 
-							"          <span aria-hidden=\"true\">&times;</span>\r\n" + 
-							"        </button>\r\n" + 
-							"      </div>\r\n" + 
-							"      <div class=\"modal-body\">\r\n" + 
-							"       Você precisa está logado para efetuar uma compra\r\n" + 
-							"      </div>\r\n" + 
-							"      <div class=\"modal-footer\">\r\n" + 
-							"        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Fechar</button>\r\n" + 
-							"      </div>\r\n" + 
-							"    </div>\r\n" + 
+							"	<div class=\"col-2\">";
+					saida += "		<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#buscanivel\">\r\n" + 
+							"  			Comprar\n" + 
+							"		</button>\r\n" + 
+							"		<div class=\"modal fade\" id=\"buscanivel\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"buscanivel\" aria-hidden=\"true\">\r\n" + 
+							"  			<div class=\"modal-dialog\" role=\"document\">\r\n" + 
+							"    			<div class=\"modal-content\">\r\n" + 
+							"      				<div class=\"modal-header\">\r\n" + 
+							"       				<h5 class=\"modal-title\" id=\"buscanivel\">Erro</h5>\r\n" + 
+							"      					<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n" + 
+							"          					<span aria-hidden=\"true\">&times;</span>\r\n" + 
+							"        				</button>\r\n" + 
+							"      				</div>\r\n" + 
+							"      				<div class=\"modal-body\">\r\n" + 
+							"      					Você precisa está logado para efetuar uma compra\r\n" + 
+							"      				</div>\r\n" + 
+							"      				<div class=\"modal-footer\">\r\n" + 
+							"        			<button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Fechar</button>\r\n" + 
+							"     			</div>\r\n" + 
+							"    	</div>\r\n" + 
 							"  </div>\r\n" + 
 							"</div>";
 					saida += "</div></div></div>";
@@ -250,30 +240,28 @@ public class LinhaAerea {
 				}
 				else if(nivelusuario == 1){
 				saida += "<div class=\"row justify-content-center\">" +
-						"<div class=\"col-2\">\r\n" + 
-						"<a href="+"compra.jsp?idusuario="+idusuario+"&idpassagem="+rs.getString("id")+"&nomelinha="+rs.getString("empresa")+"&preco="+rs.getFloat("preco")+"&classe="+rs.getInt("classe")+">" +
-						"<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" id=\"comprarsucess\" data-target=\"#myModal\">\r\n" + 
-						"Comprar" +
-						"<input type=\"hidden\" id=\"teste\" value="+rs.getString("empresa")+">" +
-						"</button>\r\n"+
-						"</a>" +
+						"	<div class=\"col-2\">\r\n" + 
+						"		<a href="+"compra.jsp?idusuario="+idusuario+"&idpassagem="+rs.getString("id")+"&nomelinha="+rs.getString("empresa")+"&preco="+rs.getFloat("preco")+"&classe="+rs.getInt("classe")+">" +
+						"			<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" id=\"comprarsucess\" data-target=\"#myModal\">\r\n" + 
+						"				Comprar" +
+						"			</button>\r\n"+
+						"		</a>" +
 						"</div></div></div>";
 				}else {
 					saida += "<div class=\"row justify-content-end\">" +
+							"	<div class=\"col-2\">\r\n" + 
+							"		<a href="+"excluir.jsp?idusuario="+idusuario+"&idpassagem="+rs.getString("id")+"&idlinha="+rs.getString("li.idLinhaAerea")+ "&classe=" +rs.getInt("classe") +">" + 
+							"			<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" id=\"excluirsucess\">" +
+							"				Excluir" +
+							"			</button>\r\n"+
+							"		</a>" +
+							"	</div>"+
 							"<div class=\"col-2\">\r\n" + 
-							"<a href="+"excluir.jsp?idusuario="+idusuario+"&idpassagem="+rs.getString("id")+"&idlinha="+rs.getString("li.idLinhaAerea")+ "&classe=" +rs.getInt("classe") +">" + 
-							"<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" id=\"excluirsucess\">" +
-							"Excluir" +
-							"<input type=\"hidden\" id=\"teste\" value="+rs.getString("empresa")+">" +
-							"</button>\r\n"+
-							"</a>" +
-							"</div>"+
-							"<div class=\"col-2\">\r\n" + 
-							"<a href="+"alterar.jsp?idusuario="+idusuario+"&idpassagem="+rs.getString("id")+"&idlinha="+rs.getString("li.idLinhaAerea")+">" +
-							"<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\">" +
-							"Alterar\r\n" + 
-							"</button>\r\n" + 
-							"</a>" + 
+							"	<a href="+"alterar.jsp?idusuario="+idusuario+"&idpassagem="+rs.getString("id")+"&idlinha="+rs.getString("li.idLinhaAerea")+">" +
+							"		<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\">" +
+							"			Alterar\r\n" + 
+							"		</button>\r\n" + 
+							"	</a>" + 
 							"</div></div>";
 				}
 				
@@ -336,7 +324,7 @@ public class LinhaAerea {
 	
 	public String alterarLinha(String idpassagem, String idlinha) {
 		ResultSet rs = this.dbQuery.dadosLinha("p.idPassagem ='"+idpassagem+"' and li.idLinhaAerea ='"+idlinha+"'");
-		String saida = "<div class=\"teste\">";
+		String saida = "";
 		try {
 			while(rs.next()) {
 				saida += "       <div class=\"row justify-content-center mt-2\">\r\n" + 
@@ -370,28 +358,22 @@ public class LinhaAerea {
 						"								Preço: " + "<input type=\"text\" class=\"form-control\" placeholder=\"Digite o preço\" name=\"cxpreco\" id=\"cxpreco\">" +
 						"							</div>\r\n" + 
 						"	  					</div>\r\n" + 
-						"  				</h6>\r\n" + 
-						"<input type=\"hidden\" id=\"id\" name=\"id\" value="+idlinha+">" +
-						"				</p><form>" +
-						"<div class=\"row justify-content-center\">\r\n" + 
-						"	<div class=\"col-2\">\r\n" + 
-						"		<button type=\"submit\" class=\"btn btn-primary\">Alterar</button>\r\n" + 
-						"	</div>\r\n" + 
-						"</div>" +
+						"  							</h6>\r\n" + 
+						"							<input type=\"hidden\" id=\"id\" name=\"id\" value="+idlinha+">" +
+						"						</p>" +
+						"					<form>" +
+						"				<div class=\"row justify-content-center\">\r\n" + 
+						"					<div class=\"col-2\">\r\n" + 
+						"						<button type=\"submit\" class=\"btn btn-primary\">Alterar</button>\r\n" + 
+						"					</div>\r\n" + 
+						"				</div>" +
 						"</div></div></div></div>";
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 		return(saida);
 	}
-	
-	
-	
-	
 	
 	public String[] toArray() {
 		return(
@@ -404,24 +386,23 @@ public class LinhaAerea {
 		);
 	}
 	
-	
-
-	
 	public String classes() {
 		String saida = "<select multiple class=\"form-control jss32 buscarclasse\" name=\"classe\" id=\"classe\">";
-		saida += "<option value=\"1\">Classe Econômica</option>\r\n" + 
-				"<option value=\"2\">Classe Executiva</option>";
-		saida += "</select>";
+		saida += "			<option value=\"1\">Classe Econômica</option>\r\n" + 
+				"			<option value=\"2\">Classe Executiva</option>";
+		saida += "		</select>";
 		
 		return(saida);
 	}
 	
 	
+	public void excluir(String idlinha) {
+		this.dbQuery.deleteLinha("linha_aerea.idLinhaAerea ='"+idlinha+"'");
+	}
+
 	public void alterar(String idpassagem, String preco, String classe,String id) {
 		this.dbQuery.update(idpassagem, preco, classe, id);
 	}
-
-	/**/
 	public void save() {
 		this.dbQuery.insert(this.toArray());
 	}

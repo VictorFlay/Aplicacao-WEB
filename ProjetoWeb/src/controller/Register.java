@@ -42,9 +42,6 @@ public class Register extends HttpServlet {
 		String telefone = request.getParameter("telefone");
 		String estado = request.getParameter("estado");
 		
-		
-		
-		
 		if(nome.equals("") || login.equals("") || senha.equals("") || telefone.equals("") || estado.equals("")) {
 			jo.put("status", false);
 			jo.put("mensagem", "Algum campo está vázio");
@@ -64,7 +61,5 @@ public class Register extends HttpServlet {
 				out.print(mensagem);
 			}
 		}
-
-
 	}
 }
