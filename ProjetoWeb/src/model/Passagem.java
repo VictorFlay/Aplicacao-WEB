@@ -90,7 +90,9 @@ public class Passagem {
 			while(rs.next()) {
 				if(i == 0) {
 				saida += "<div class=\"carousel-item active\">\r\n" + 
+						"<a href=passagens.jsp?idpassagem="+rs.getString("passagem")+">"+
 						"  <img class=\"d-block w-100\" src=" + rs.getString("URL") + " style=\"height:380px; width:350px;\">\r\n" + 
+						"</a>" +
 						" <div class=\"carousel-caption d-none d-md-block\">" +
 						"<h4>" + rs.getString("nome") + "</h4>" +
 						"<p>" + "preço a partir de: " + NumberFormat.getCurrencyInstance(ptBr).format(rs.getFloat("preco")) + "<p>" +
@@ -98,10 +100,12 @@ public class Passagem {
 				}
 				else {
 					saida += "<div class=\"carousel-item\">\r\n" + 
+							"<a href=passagens.jsp?idpassagem="+rs.getString("passagem")+">"+
 							"  <img class=\"d-block w-100\" src=" + rs.getString("URL") + " style=\"height:380px; width:350px;\">\r\n" + 
+							"</a>" +
 							" <div class=\"carousel-caption d-none d-md-block\">" +
 							"<h4>" + rs.getString("nome") + "</h4>" +
-							"<p>" + "pre�o a partir de: " + NumberFormat.getCurrencyInstance(ptBr).format(rs.getFloat("preco")) + "<p>" +
+							"<p>" + "preço a partir de: " + NumberFormat.getCurrencyInstance(ptBr).format(rs.getFloat("preco")) + "<p>" +
 							" </div> </div>";
 				}
 				i++;
@@ -181,6 +185,21 @@ public class Passagem {
 		return (saida);
 	}
 
+	public String destino (String idpassagem) {
+		ResultSet rs = this.dbQuery.destino ("passagem.idPassagem = '" + idpassagem + "'");
+		String saida = null;
+
+		try {
+			while (rs.next ()) {
+				saida = rs.getString ("nome");
+			}
+		} catch (SQLException e) {
+			// TODO bloco de captura gerado automaticamente
+			e.printStackTrace ();
+		}
+
+		return (saida);
+	}
 	
 	public String passagemDisponivel() {
 		ResultSet rs = this.dbQuery.selectPassagem("");

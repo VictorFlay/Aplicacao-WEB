@@ -6,23 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="classe"/>
+		<item key="selection" value="alterar-form"/>
 		<list key="findhistory">
-			<item value="classe"/>
-			<item value="classse"/>
-			<item value="seleciona"/>
-			<item value="&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css&quot; integrity=&quot;sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm&quot; crossorigin=&quot;anonymous&quot;&gt;"/>
+			<item value="alterar-form"/>
+			<item value="linha-form"/>
+			<item value="passagem-form"/>
+			<item value="localizacao-form"/>
+			<item value="destino"/>
+			<item value="login-form"/>
+			<item value="register-form"/>
 			<item value="errobusca"/>
-			<item value="error"/>
+			<item value="buscar-form"/>
+			<item value="imagem"/>
+			<item value="inam"/>
+			<item value="ianm"/>
+			<item value="excluir"/>
 			<item value="delete"/>
-			<item value="&gt;"/>
-			<item value="&lt;"/>
-			<item value="50px"/>
-			<item value="bloco"/>
-			<item value="comprar"/>
-			<item value="compra"/>
-			<item value="selectCompr"/>
-			<item value="selectComp"/>
+			<item value="save"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

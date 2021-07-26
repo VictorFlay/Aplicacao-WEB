@@ -1,4 +1,9 @@
 $(document).ready(function(){
+	$('.excluirlocalizacao').click(function(){
+		alert("Localizacao excluido com sucesso!");
+	});
+	
+	
 	$('.excluirpassagem').click(function(){
 		alert("Passagem excluido com sucesso!");
 	});

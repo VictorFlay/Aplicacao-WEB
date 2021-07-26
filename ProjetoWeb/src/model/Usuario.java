@@ -68,7 +68,7 @@ public class Usuario {
 	
 	
 	public boolean save() {
-		ResultSet rs = this.dbQuery.select("nome = '"+this.getNome()+"' and login='"+this.getLogin()+"'");
+		ResultSet rs = this.dbQuery.select("nome = '"+this.getNome()+"' or login='"+this.getLogin()+"'");
 		try {
 			while(rs.next()) {
 				return true;

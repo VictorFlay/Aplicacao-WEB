@@ -281,7 +281,7 @@ public class LinhaAerea {
 	
 	public String linhaAereaEspecifica(String idpassagem, String idlinha) {
 		ResultSet rs = this.dbQuery.dadosLinha("p.idPassagem ='"+idpassagem+"' and li.idLinhaAerea ='"+idlinha+"'");
-		String saida = "<div class=\"teste\">";
+		String saida = "";
 		try {
 			while(rs.next()) {
 				saida += "       <div class=\"row justify-content-center mt-2\">\r\n" + 

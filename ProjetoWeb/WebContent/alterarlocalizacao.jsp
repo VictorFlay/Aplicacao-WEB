@@ -41,7 +41,7 @@
 		<!-- Botão para voltar para página anterior -->
 		<div class="row mt-2 ml-2">
 			<div class="col-8 col-lg-9 justify-content-between ">
-				<a href="passagens.jsp">
+				<a href="adicionarlocalizacao.jsp">
 					<button type="button" class="btn btn-primary">Voltar</button>
 				</a>
 			</div>

@@ -90,7 +90,7 @@ public class Localizacao {
 						"			</button>\r\n"+
 						"		</a>" +
 						"		<a href="+"alterarlocalizacao.jsp?idlocalizacao="+rs.getInt("idLocalizacao")+">" +
-						"			<button type=\"button\" class=\"btn btn-primary excluirlocalizacao\" data-toggle=\"modal\" data-target=\"#myModal\">\r\n" + 
+						"			<button type=\"button\" class=\"btn btn-primary \" data-toggle=\"modal\" data-target=\"#myModal\">\r\n" + 
 						"				Alterar" +
 						"			</button>\r\n"+
 						"		</a>" +
@@ -133,7 +133,7 @@ public class Localizacao {
 						"								<input type=\"hidden\" id=\"cxid\" name=\"cxid\" value="+this.getIdlocalizacao()+">" +
 						"							</h6>\r\n" + 
 						"							<div class=\"col text-center\">\r\n" + 
-						"								<button type=\"submit\" class=\"btn btn-primary\">Alterar</button>\r\n" + 
+						"								<button type=\"submit\" class=\"btn btn-primary alterlocalizacao\">Alterar</button>\r\n" + 
 						"							</div>\r\n" + 
 						"						</form>\r\n" + 
 						"					</div>\r\n" + 

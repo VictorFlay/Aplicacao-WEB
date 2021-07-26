@@ -698,6 +698,7 @@ hr.jss14{
 #imagem{
     position: absolute;
     width: 1366px;
+    opacity: 0.9;
 }
 
 #aviaofundo{

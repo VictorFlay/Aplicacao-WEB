@@ -7,7 +7,6 @@ INDEX VERSION 1.131+C:\Users\Kaique Nakao\ProjectWeb\.metadata\.plugins\org.ecli
 2646219573.index
 1724777018.index
 617852079.index
-3649879588.index
 1156077568.index
 2538428657.index
 1966532802.index
